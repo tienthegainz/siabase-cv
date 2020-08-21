@@ -1,7 +1,7 @@
 {
-  "name": "reactive-resume",
+  "name": "siabase-cv",
   "private": true,
-  "description": "A free and open-source resume builder.",
+  "description": "A free and open-source decentralized resume builder.",
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
