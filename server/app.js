@@ -30,7 +30,11 @@ app.use(cookieParser());
 // Route
 app.use('/', route);
 
-if (!fs.existsSync('uploads/')) fs.mkdir('uploads/');
+// Clean up `uploads` directory
+if (fs.existsSync('uploads/')) fs.rmdirSync('uploads/', { recursive: true });
+fs.mkdir('uploads/', { recursive: false }, error => {
+  if (error) throw error;
+});
 
 app.listen(port, error => {
   if (error) throw error;
