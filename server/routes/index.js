@@ -12,11 +12,13 @@ const environment = process.env.NODE_ENV || 'development';
 const BASE_URL =
   environment === 'development' ? process.env.DEV_CLIENT_HOST : process.env.PROD_CLIENT_HOST;
 
-router.get('/connect', async (req, res) => {
-  try {
-    const response = await api('GET', '/api/v0/dns/domains/dkoi', null);
+router.get('/checkNBDomainNameConnection', async (req, res) => {
+  const { domain } = req.body;
 
-    res.status(200).json(response);
+  try {
+    const response = await api('GET', `/api/v0/dns/domains/${domain}`, null);
+
+    res.json(response);
   } catch (error) {
     if (error) throw error;
 
@@ -24,13 +26,13 @@ router.get('/connect', async (req, res) => {
   }
 });
 
-router.post('/getNamebaseDomainName', async (req, res) => {
-  try {
-    const skylink = req.body.skylink;
+router.post('/mapNBDomainNameToSkylink', async (req, res) => {
+  const { skylink, domain } = req.body;
 
+  try {
     const body = `{"records": [{ "type": "TXT", "host": "", "value":"${skylink}","ttl": 0 }] }`;
 
-    const response = await api('PUT', '/api/v0/dns/domains/dkoi', body);
+    const response = await api('PUT', `/api/v0/dns/domains/${domain}`, body);
 
     res.json(response);
   } catch (error) {
