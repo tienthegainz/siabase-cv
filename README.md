@@ -30,42 +30,46 @@ You have complete control over what goes into your resume, how it looks, what co
 - Choose from 6 vibrant templates and more coming soon
 - Structure sections and change layouts the way you want to
 - Rename sections according to your language/industry
-- Mix and match colors to any degree, even a dark mode resume?
+- Mix and match colors to any degree, even a dark mode resume
 - Pick from a variety of crisp and clear fonts
-- Easy to translate to your own language
 - Import your existing [JSON Resume](https://jsonresume.org/) in one click
 - No advertisements, no data sharing, no marketing emails
 
 # Building from source
 
-1. Install your browser extension of your prefered cryptocurrency wallet and unlock it.
-
-2. Clone this repository to your computer
+**1. Clone this repository to your computer**
 
 `git clone git@github.com:DrNguyen2525/siabase-cv.git`
 
-3. Launch the back-end server
+**2. Launch the back-end server**
 
 Open a terminal tab, navigate to `server` directory and install dependencies
 
 `cd server`
+
 `yarn`
 
-Make a copy of `.env.example` file, name it `.env` and fill it with your Namebase credentials
+Make a copy of `.env.example` file, name it `.env` and leave your client side host there. This app leverage [Gatsby](https://www.gatsbyjs.org/) for front-end development and Gatsby run at port `8000` by default.
+
+I also implemented an API for registering **Namebase** domain name in order to _handshake_ with a **Skylink** you provide. If you want to, make sure to provide your Namebase credentials too. Otherwise, just left it blank.
 
 ```
 ACCESS_KEY=
 SECRET_KEY=
+
+DEV_CLIENT_HOST=http://localhost:8000
+PROD_CLIENT_HOST=<YOUR_PUBLIC_CLIENT_HOSTING>
 ```
 
 Then wake it up
 `yarn start`
 
-4. Launch the front-end server
+**3. Launch the front-end server**
 
 Open another terminal tab, navigate to `client` directory and install dependencies
 
 `cd client`
+
 `yarn`
 
 This project use Firebase Authentication and their Realtime Database for storing users and resumes, so please go to [Firebase](https://firebase.google.com/) and create a Firebase project yourself.
@@ -82,22 +86,26 @@ FIREBASE_PROJECTID=
 FIREBASE_STORAGEBUCKET=
 ```
 
-Next, create two new `.env.development` file and `.env.production` file, then give them your Host information as `SERVER_HOST` environment variable
+Next, create two new `.env.development` file and `.env.production` file, then give them your host information as `SERVER_HOST` environment variable
+
+`.env.development` (Express Server)
 
 ```
-SERVER_HOST=
+SERVER_HOST=http://localhost:5000
+```
+
+`.env.production` file
+
+```
+SERVER_HOST=<YOUR_PUBLIC_SERVER_HOSTING>
 ```
 
 Finally, wake it up and chill
 
 `yarn start`
 
-5. Run the development server and have some fun
-
-`yarn start`
-
 # Live demo
 
-Coming soon.
+A demo is worth a thousand words. Give it a try [here](https://siabase-cv.web.app/).
 
 # Explanation
