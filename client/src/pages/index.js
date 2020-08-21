@@ -18,12 +18,13 @@ const Home = () => {
         <Hero />
 
         <p className='leading-loose text-lg mt-16'>
-          SiabaseCV is a free and open source resume builder that’s built to
-          make the mundane tasks of creating, updating and sharing your resume
-          as easy as 1, 2, 3. With this app, you can create multiple resumes,
-          share them with recruiters through a unique link and print as PDF, all
-          for free, no advertisements, without losing the integrity and privacy
-          of your data.
+          SiabaseCV is a free and open source resume builder that is built
+          leveraging Skynet decentralized CDN and Namebase top-level domain
+          (TLD) name registrar to make the mundane tasks of creating, updating
+          and sharing your CV as easy as writing alphabet. With this app, you
+          can create multiple resumes, share them with recruiters through a
+          unique link and print as PDF, all for free, no advertisements, without
+          losing the integrity and privacy of your data.
         </p>
       </div>
     </Wrapper>
