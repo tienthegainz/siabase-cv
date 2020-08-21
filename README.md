@@ -109,3 +109,5 @@ Finally, wake it up and chill
 A demo is worth a thousand words. Give it a try [here](https://siabase-cv.web.app/).
 
 # Explanation
+
+Explanation video is available [here](https://siasky.net/AABZPQuUx55E_Qp1ZDe6w2q7rKBthcfYkg_jXQFpYupSiQ/).
