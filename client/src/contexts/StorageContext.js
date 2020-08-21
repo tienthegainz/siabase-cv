@@ -31,12 +31,12 @@ const StorageProvider = ({ children }) => {
       return null;
     }
 
-    // if (file.size > 2097152) {
-    //   toast.error(
-    //     "Your image seems to be bigger than 2 MB. That's way too much. Maybe consider reducing it's size?"
-    //   );
-    //   return null;
-    // }
+    if (file.size > 2097152) {
+      toast.error(
+        "Your image seems to be bigger than 2 MB. That's way too much. Maybe consider reducing it's size ?"
+      );
+      return null;
+    }
 
     const uploadTask = firebase
       .storage()

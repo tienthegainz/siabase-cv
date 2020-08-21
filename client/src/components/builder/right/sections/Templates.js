@@ -1,6 +1,6 @@
 import cx from 'classnames';
-import { graphql, useStaticQuery } from 'gatsby';
-import GatsbyImage from 'gatsby-image';
+// import { graphql, useStaticQuery } from 'gatsby';
+// import GatsbyImage from 'gatsby-image';
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from '../../../../contexts/ResumeContext';
 import templateOptions from '../../../../data/templateOptions';
@@ -13,52 +13,52 @@ const Templates = ({ id }) => {
   const dispatch = useDispatch();
   const template = useSelector('metadata.template');
 
-  const previews = useStaticQuery(graphql`
-    query {
-      onyx: file(relativePath: { eq: "templates/onyx.png" }) {
-        childImageSharp {
-          fluid(maxHeight: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      pikachu: file(relativePath: { eq: "templates/pikachu.png" }) {
-        childImageSharp {
-          fluid(maxHeight: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      gengar: file(relativePath: { eq: "templates/gengar.png" }) {
-        childImageSharp {
-          fluid(maxHeight: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      castform: file(relativePath: { eq: "templates/castform.png" }) {
-        childImageSharp {
-          fluid(maxHeight: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      glalie: file(relativePath: { eq: "templates/glalie.png" }) {
-        childImageSharp {
-          fluid(maxHeight: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      celebi: file(relativePath: { eq: "templates/celebi.png" }) {
-        childImageSharp {
-          fluid(maxHeight: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+  // const previews = useStaticQuery(graphql`
+  //   query {
+  //     onyx: file(relativePath: { eq: "templates/onyx.png" }) {
+  //       childImageSharp {
+  //         fluid(maxHeight: 400) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     pikachu: file(relativePath: { eq: "templates/pikachu.png" }) {
+  //       childImageSharp {
+  //         fluid(maxHeight: 400) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     gengar: file(relativePath: { eq: "templates/gengar.png" }) {
+  //       childImageSharp {
+  //         fluid(maxHeight: 400) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     castform: file(relativePath: { eq: "templates/castform.png" }) {
+  //       childImageSharp {
+  //         fluid(maxHeight: 400) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     glalie: file(relativePath: { eq: "templates/glalie.png" }) {
+  //       childImageSharp {
+  //         fluid(maxHeight: 400) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     celebi: file(relativePath: { eq: "templates/celebi.png" }) {
+  //       childImageSharp {
+  //         fluid(maxHeight: 400) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const handleClick = valueToUpdate => {
     dispatch({
@@ -94,13 +94,21 @@ const Templates = ({ id }) => {
               [styles.selected]: template === x.id
             })}
           >
-            <GatsbyImage
+            {/* <GatsbyImage
               alt={x.name}
               loading='eager'
               className='w-full'
               style={{ height: '230px' }}
               fluid={previews[x.id].childImageSharp.fluid}
+            /> */}
+            <img
+              alt={x.name}
+              loading='eager'
+              className='w-full'
+              style={{ height: '230px' }}
+              src={templatePreviews[x.id]}
             />
+
             <span>{x.name}</span>
           </div>
         ))}

@@ -16,6 +16,23 @@ const PhotoUpload = () => {
 
   const dispatch = useDispatch();
 
+  const uploadingToast = useRef(null);
+
+  const notifyUploadingToast = () => {
+    uploadingToast.current = toast('Uploading...', { autoClose: false });
+  };
+
+  const updateUploadingToast = content => {
+    toast.update(uploadingToast.current, {
+      render: content,
+      autoClose: 5000
+    });
+  };
+
+  const closeUploadingToast = () => {
+    toast.dismiss(uploadingToast.current);
+  };
+
   const handleIconClick = () => {
     fileInputRef.current.click();
   };
@@ -23,38 +40,61 @@ const PhotoUpload = () => {
   const handleImageUpload = async event => {
     const file = event.target.files[0];
 
-    // eslint-disable-next-line no-undef
-    const formData = new FormData();
-
-    formData.append('avatar', file);
-
-    try {
-      // uploadPhotograph(file);
-
-      toast('Uploading...');
-
-      const response = await fetch(`${process.env.SERVER_HOST}/avatar`, {
-        method: 'POST',
-        body: formData
-      });
-
-      const { message, skylink } = await response.json();
-
-      if (skylink) {
-        dispatch({
-          type: 'on_input',
-          payload: {
-            path: 'profile.photograph',
-            value: `https://siasky.net/${skylink}`
-          }
-        });
-
-        dispatch({ type: 'update_skynet_synced_status' });
+    if (file) {
+      if (file.size > 10485760) {
+        toast.error(
+          "Your image seems to be larger than 10 MB. That's way too much. Maybe consider reducing it's size ?"
+        );
+        return;
       }
 
-      toast(message);
-    } catch (error) {
-      toast.error(error);
+      // eslint-disable-next-line no-undef
+      const formData = new FormData();
+
+      formData.append('avatar', file);
+
+      try {
+        notifyUploadingToast();
+
+        setTimeout(
+          () =>
+            updateUploadingToast(() => (
+              <p>
+                Uploading...
+                <br />
+                This might take time if your photo size is large
+              </p>
+            )),
+          3000
+        );
+
+        const response = await fetch(`${process.env.SERVER_HOST}/avatar`, {
+          method: 'POST',
+          body: formData
+        });
+
+        const { message, skylink } = await response.json();
+
+        if (skylink) {
+          dispatch({
+            type: 'on_input',
+            payload: {
+              path: 'profile.photograph',
+              value: `https://siasky.net/${skylink}`
+            }
+          });
+
+          dispatch({ type: 'update_skynet_synced_status' });
+        }
+
+        if (message) {
+          toast(message);
+          closeUploadingToast();
+        }
+      } catch (error) {
+        toast.error(error);
+        throw error;
+      }
     }
   };
 

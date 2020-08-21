@@ -46,7 +46,7 @@ const ProjectModal = () => {
 
             <Input
               label={t('shared.forms.website')}
-              placeholder='https://github.com/AmruthPillai/Reactive-Resume'
+              placeholder='https://github.com/DrNguyen2525/siabase-cv'
               {...getFieldProps(formik, schema, 'link')}
             />
 

@@ -54,7 +54,7 @@ const DataModal = ({
         if (data !== newData) {
           isFunction(onEdit)
             ? await onEdit(newData)
-            : () => {
+            : (() => {
                 dispatch({
                   type: 'on_edit_item',
                   payload: {
@@ -63,14 +63,14 @@ const DataModal = ({
                   }
                 });
                 dispatch({ type: 'update_skynet_synced_status' });
-              };
+              })();
         }
       } else {
         newData.id = uuidv4();
 
         isFunction(onCreate)
           ? await onCreate(newData)
-          : () => {
+          : (() => {
               dispatch({
                 type: 'on_add_item',
                 payload: {
@@ -79,7 +79,7 @@ const DataModal = ({
                 }
               });
               dispatch({ type: 'update_skynet_synced_status' });
-            };
+            })();
       }
 
       modalRef.current.handleClose();

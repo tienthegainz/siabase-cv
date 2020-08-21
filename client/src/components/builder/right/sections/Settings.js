@@ -83,7 +83,7 @@ const Settings = ({ id }) => {
         <Trans t={t} i18nKey='builder.settings.translate'>
           A
           <a
-            href='https://github.com/AmruthPillai/Reactive-Resume#translation'
+            href='https://github.com/DrNguyen2525/siabase-cv'
             rel='noreferrer'
             target='_blank'
           >

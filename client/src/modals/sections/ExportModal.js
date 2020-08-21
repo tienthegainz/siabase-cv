@@ -46,7 +46,6 @@ const ExportModal = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: JSON.stringify({ id, type: 'single' })
     });
@@ -72,7 +71,6 @@ const ExportModal = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: JSON.stringify({ id, type: 'multi' })
     });

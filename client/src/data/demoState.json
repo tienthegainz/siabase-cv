@@ -3,25 +3,11 @@
     "heading": "Awards",
     "items": [
       {
-        "awarder": "Google",
+        "awarder": "Chainlink",
         "date": "2019-04-01",
         "id": "6f857f2b-6312-4a0d-907d-2e17991954eb",
-        "summary": "",
-        "title": "International Flutter Hackathon"
-      },
-      {
-        "awarder": "Venturesity",
-        "date": "2016-06-01",
-        "id": "f6efa3f9-9741-4e36-a538-ba0d9779bc61",
-        "summary": "",
-        "title": "Venturesity Banyan Hack"
-      },
-      {
-        "awarder": "Govt. of India",
-        "date": "2017-04-01",
-        "id": "89c0171a-eae9-403e-9f4c-a757fb535c2b",
-        "summary": "",
-        "title": "Smart India Hackathon"
+        "summary": "Any project using a [Chainlink reference data contract](https://docs.chain.link/docs/using-chainlink-reference-contracts) contract qualifies. Adding a simple Chainlink anchor (sanity check on centralized oracle sources), and making a state change on your project is enough to submit for this bounty.\n\nHackers are challenged to make something powerful, fun, and applicable in the defi space, or any other creative use cases. You can always check out our [44 hackathon](https://blog.chain.link/44-ways-to-enhance-your-smart-contract-with-chainlink/) ideas to find some inspiration.\n[Learn more](https://gitcoin.co/issue/smartcontractkit/chainlink/3139/100023142)",
+        "title": "Unitize (SFBW) Hackathon"
       }
     ],
     "visible": true
@@ -30,25 +16,18 @@
     "heading": "Certifications",
     "items": [
       {
-        "date": "2018-02-01",
+        "date": "2019-12-01",
         "id": "d2ec12bc-7876-46bc-afd4-11ae06faf3bd",
-        "issuer": "Cisco Systems",
+        "issuer": "The Official Worldwide Japanese-Language Proficiency Test Website is operated by the Japan Foundation and Japan Educational Exchanges and Services",
         "summary": "",
-        "title": "CCNP"
+        "title": "JLPT N2"
       },
       {
-        "date": "2019-06-01",
+        "date": "2020-06-10",
         "id": "f8312288-53ae-4504-a768-4b67aea95926",
-        "issuer": "VMWare",
+        "issuer": "National Council of Examiners for Engineering and Surveying (NCEES)",
         "summary": "",
-        "title": "VCP6-DCV"
-      },
-      {
-        "date": "2014-04-01",
-        "id": "11107df6-5f3c-49ae-bcd4-62b8baa181a1",
-        "issuer": "Cisco Systems",
-        "summary": "",
-        "title": "DCUCI 642-999"
+        "title": "Fundamentals of Engineering Examination (FE)"
       }
     ],
     "visible": true
@@ -57,23 +36,13 @@
     "heading": "Education",
     "items": [
       {
-        "degree": "Masters",
-        "endDate": "2002-08-01",
-        "field": "Computer Science",
-        "gpa": "7.2 CGPA",
+        "degree": "Engineer",
+        "endDate": "2021-06-30",
+        "field": "Information Technology",
+        "gpa": "3.6 GPA",
         "id": "c42e2a5a-3f0d-497e-838b-ac2019dcf045",
-        "institution": "The City College of New York, NYC, NY",
-        "startDate": "2001-09-01",
-        "summary": ""
-      },
-      {
-        "degree": "Bachelors",
-        "endDate": "2001-08-01",
-        "field": "Computer Science",
-        "gpa": "8.4 CGPA",
-        "id": "278490a2-c327-4e83-8be8-adf913a9b36c",
-        "institution": "University of California, Berkeley, CA",
-        "startDate": "1997-09-01",
+        "institution": "Hanoi University of Science and Technology, Hanoi, Vietnam",
+        "startDate": "2016-09-15",
         "summary": ""
       }
     ],
@@ -84,23 +53,15 @@
     "items": [
       {
         "id": "788dcf5a-78ca-4866-8397-c7a29073d9a1",
-        "name": "Poetry"
+        "name": "Movie"
       },
       {
         "id": "e3523371-f50c-4348-8c5e-35fe84c0006d",
-        "name": "Travelling"
+        "name": "Music"
       },
       {
         "id": "92c35e3b-6cd7-4cea-b505-61347ec61b68",
-        "name": "Photography"
-      },
-      {
-        "id": "d36f2089-93a9-4f30-a425-3dd81c6b89df",
-        "name": "Playing Badminton"
-      },
-      {
-        "id": "d1da41a9-ae83-48fb-8047-d45ebd869a69",
-        "name": "Developing SiabaseCV"
+        "name": "Sport"
       }
     ],
     "visible": true
@@ -109,24 +70,19 @@
     "heading": "Languages",
     "items": [
       {
-        "fluency": "Very Fluent",
+        "fluency": "Native Tongue",
+        "id": "9e0bd5ed-b88d-4046-8fb9-ecba54d29924",
+        "name": "Vietnamese"
+      },
+      {
+        "fluency": "Fluent",
         "id": "78d8cf32-84c7-431d-969b-fdf277968026",
         "name": "English"
       },
       {
-        "fluency": "Native Tongue",
-        "id": "9e0bd5ed-b88d-4046-8fb9-ecba54d29924",
-        "name": "Tamil"
-      },
-      {
-        "fluency": "Native Tongue",
+        "fluency": "JLPT N2",
         "id": "cb895aa9-c485-4bf3-a9e3-08e8f219451a",
-        "name": "Kannada"
-      },
-      {
-        "fluency": "Learning on Duolingo",
-        "id": "8fff60fc-0cd6-47e2-b64f-fb249d1af0d1",
-        "name": "German"
+        "name": "Japanese"
       }
     ],
     "visible": true
@@ -134,7 +90,7 @@
   "metadata": {
     "colors": {
       "background": "#FFFFFF",
-      "primary": "#009688",
+      "primary": "#FF9800",
       "text": "#212121"
     },
     "font": "Open Sans",
@@ -185,36 +141,36 @@
   "preview": "https://firebasestorage.googleapis.com/v0/b/siabase-cv.appspot.com/o/templates%2Fcastform.png?alt=media&token=1c20d226-e3ef-460c-8ac6-262d0d678b29",
   "profile": {
     "address": {
-      "city": "Bangalore, India -",
-      "line1": "#5/A, Banashankari Nivas,",
-      "line2": "Brindavan Layout, Subramanyapura,",
-      "pincode": "560061"
+      "city": "Hanoi",
+      "line1": "68/58 Ngoc Thuy St.",
+      "line2": "",
+      "pincode": "100000"
     },
-    "email": "hello@amruthpillai.com",
-    "firstName": "Amruth",
+    "email": "longnguyen25111998@gmail.com",
+    "firstName": "Long",
     "heading": "Profile",
-    "lastName": "Pillai",
-    "phone": "+91 98453 36113",
-    "photograph": "https://i.imgur.com/2dmLSCT.jpg",
+    "lastName": "Nguyen",
+    "phone": "0354417676",
+    "photograph": "https://siasky.net/fAKlkdiRtlraqrflk6xxzQ1y21HTEfUmtx3xuVT5sQtivQ",
     "subtitle": "Full Stack Web Developer",
-    "website": "amruthpillai.com"
+    "website": ""
   },
   "projects": {
     "heading": "Projects",
     "items": [
       {
-        "date": "2020-07-01",
-        "id": "c768dcca-90f5-4242-a608-6759b4f667fb",
-        "link": "https://github.com/AmruthPillai/Reactive-Resume",
-        "summary": "SiabaseCV, a free and open-source resume builder that works for you. A few of the important features that make it awesome are minimalistic UI/UX, extensive customizability, portability, regularly updated templates, etc.\n\nFor more information, check out [rxresu.me](https://github.com/AmruthPillai/Reactive-Resume)",
-        "title": "SiabaseCV"
+        "date": "2020-05-18",
+        "id": "6ca600b1-c21f-4d7b-8431-f7144d537dd3",
+        "link": "https://movieholic-9b3d3.web.app/",
+        "summary": "**Movieholic** is just a simple movie review site for movie lovers. Everyone can access and check out for movie information, read others' review about them and add your own thought with ease.\nThe app leverage [Firebase](https://firebase.google.com/) suite for serverless architecture at back-end side and [React](https://reactjs.org/) for the interactive UI.\nYou can give it a try [here](https://movieholic-9b3d3.web.app/).\nOr check out the [source code repository](https://github.com/DrNguyen2525/movieholic).",
+        "title": "Movieholic"
       },
       {
-        "date": "2020-04-01",
-        "id": "6ca600b1-c21f-4d7b-8431-f7144d537dd3",
-        "link": "https://amruthpillai.com",
-        "summary": "Resume on the Web has been a project that I've been focused on since the early 2014s. I didn't want my information to be displayed on just a sheet of paper that only HRs or Talent Scouts had the privilege of reading, I wanted it to be accessible to everyone. And that's how this project was conceptualized.",
-        "title": "Resume on the Web"
+        "date": "2020-07-14",
+        "id": "c768dcca-90f5-4242-a608-6759b4f667fb",
+        "link": "https://cryptophecy-5392d.web.app/",
+        "summary": "**Cryptophecy** which stands for **Cryptocurrency Prophecy**, is a simple bet game developed using [Chainlink reference data contract](https://docs.chain.link/docs/using-chainlink-reference-contracts) at the backend side and React for the Web UI interaction.\n\nGamblers can come to play whenever and as many times as they want by guessing whether the **Bitcoin** exchange rate after 1 hour will raise, drop, or be unchanged and then betting an arbitrary amount of **Ethereum** (at least 0.01 ETH) for that prediction. If the actual exchange after 1 hour since the moment their requests were submitted matched their guess, the gamblers would be rewarded an amount of **2.9 times** their stake. Otherwise, they receive nothing.\n\nFor more information, check out [Cryptophecy](https://github.com/DrNguyen2525/Crypto_Supreme_Prophecy)",
+        "title": "Cryptophecy"
       }
     ],
     "visible": true
@@ -224,27 +180,19 @@
     "heading": "References",
     "items": [
       {
-        "email": "willywonka@goldenticket.com",
+        "email": "kobayashi.taihei@sun-asterisk.com",
         "id": "168339fd-3c4b-4f2f-bd3a-ef184be81700",
-        "name": "Willy Wonka",
+        "name": "Kobayashi Taihei",
         "phone": "+1 (802) 234-2398",
-        "position": "CEO at Chocolate Factory",
+        "position": "CEO at Sun*",
         "summary": ""
       },
       {
-        "email": "elanmusk@nottesla.com",
+        "email": "trangntt@soict.hust.edu.vn",
         "id": "350465b9-9989-43cc-b97e-4115b8980304",
-        "name": "Elangovan Musk",
-        "phone": "+91 93893 34353",
-        "position": "CEO at Newton Motors",
-        "summary": ""
-      },
-      {
-        "email": "l.beasley@carsonlogistics.com",
-        "id": "94e3447b-0a78-4fb7-b14d-591982d35320",
-        "name": "Lorraine Beasley",
-        "phone": "+1 661-808-4188",
-        "position": "Head of HR, Carson Logistics",
+        "name": "Nguyen Thi Thu Trang",
+        "phone": "+84 (0)9.88.08.82.10",
+        "position": "Chairman at Vbee",
         "summary": ""
       }
     ],
@@ -254,11 +202,6 @@
     "heading": "Skills",
     "items": [
       {
-        "id": "54e5bceb-d0e9-4f04-98d1-48a34f7cf920",
-        "level": "Advanced",
-        "name": "Customer Service Expertise"
-      },
-      {
         "id": "f0274f62-2252-4cc0-bf12-9e1070942c50",
         "level": "Intermediate",
         "name": "High-Volume Call Center"
@@ -267,11 +210,6 @@
         "id": "689e2852-df1b-4d41-bda8-c41c88196264",
         "level": "Intermediate",
         "name": "Team Leader/Problem Solver"
-      },
-      {
-        "id": "3a4f73b1-50c1-4a85-a4b0-2a55dfe5053a",
-        "level": "Novice",
-        "name": "Call Center Management"
       },
       {
         "id": "08d6c739-1465-41f7-8825-b8d94faa38d6",
@@ -286,26 +224,30 @@
     ],
     "visible": true
   },
+  "skynet": {
+    "isSyncedWithSkynet": false,
+    "skylink": "https://siasky.net/fALaU3ijhgC0LpjWIdFrXW633DpjwDrI7atzmhcOjZs95w"
+  },
   "social": {
     "heading": "Social Network",
     "items": [
       {
+        "id": "a72107fa-a4a5-407d-9e85-39bdb9c0b11a",
+        "network": "Facebook",
+        "url": "https://www.facebook.com/dr.nguyen.125",
+        "username": "Long Nguyễn"
+      },
+      {
         "id": "a832b37d-f11d-4a80-8b4d-24796e571b17",
         "network": "Instagram",
-        "url": "https://pillai.xyz/instagram",
-        "username": "AmruthPillai"
+        "url": "https://www.instagram.com/dr.nguyenn/",
+        "username": "dr.nguyenn"
       },
       {
-        "id": "a72107fa-a4a5-407d-9e85-39bdb9c0b11a",
-        "network": "Twitter",
-        "url": "https://pillai.xyz/twitter",
-        "username": "KingOKings"
-      },
-      {
-        "id": "1dd46fdd-b3a3-4786-89ce-2e77c0823aba",
+        "url": "https://www.linkedin.com/in/dr-nguyen/",
         "network": "LinkedIn",
-        "url": "https://pillai.xyz/linkedin",
-        "username": "AmruthPillai"
+        "username": "Long Nguyễn",
+        "id": "ff76902a-156f-4e24-a227-601b0fa9144a"
       }
     ],
     "visible": true
@@ -314,31 +256,31 @@
     "heading": "Work Experience",
     "items": [
       {
-        "company": "On Point Electronics, NYC, NY",
-        "endDate": "2018-07-01",
+        "company": "Brains Technology Inc., Tokyo, Japan",
+        "position": "Intern",
+        "website": "https://www.brains-tech.co.jp/",
+        "startDate": "2019-06-01",
+        "endDate": "2019-08-31",
+        "summary": "**Stock Price Prediction System**\n- TensorFlow\n- Keras\n- Flask\n- React",
+        "id": "9b585ec7-a29d-47b3-bcdb-c8853ec18a38"
+      },
+      {
+        "company": "Sun* Inc., Hanoi, Vietnam",
+        "endDate": "2020-09-15",
         "id": "d7c64937-0cb9-41b1-a3a6-0679c882fe63",
-        "position": "Customer Service Representative",
-        "startDate": "2013-01-01",
-        "summary": "- Organized customer information and account data for business planning and customer service purposes.\n- Created excel spreadsheets to track customer data and perform intense reconciliation process.\n- Received 97% positive customer survey results.\n- Speed on calls was 10% above team average.  \n**Key Achievement:** Designed and executed an automatized system for following up with customers, increasing customer retention by 22%.",
-        "website": "https://onpoint.com"
+        "position": "Intern",
+        "startDate": "2020-07-15",
+        "summary": "IT Training\n- Git\n- Java core\n- Hibernate\n- Spring Core\n- Spring MVC\n- MySQL\n- Project 1\n- Unit test",
+        "website": "https://sun-asterisk.vn/"
       },
       {
-        "company": "Excelsior Communications, NYC, NY",
-        "endDate": "2012-12-01",
-        "id": "f5c5dcfe-2a60-4169-a2f1-b305355518ea",
-        "position": "Customer Service Representative",
-        "startDate": "2009-10-01",
-        "summary": "- Worked as a full time customer service rep in a high volume call center.\n- Received \"Associate of the Month\" award six times.\n- Chosen as an example for other associates in trainings.  \n**Key Achievement:** Received Customer Appreciation bonus in three of four years.",
-        "website": "https://excelsior.com"
-      },
-      {
-        "company": "Pizza Hut, Newark, NJ",
-        "endDate": "2009-09-01",
+        "company": "Vbee Inc., Hanoi, Vietnam",
+        "endDate": "2021-06-30",
         "id": "dd935088-6fe7-4a4b-8ff5-7417c32d2add",
-        "position": "Waiter",
-        "startDate": "2005-08-01",
-        "summary": "- Worked passionately in customer service in a high volume restaurant.\n- Completed the FAST customer service training class.\n- Maintained a high tip average thanks to consistent customer satisfaction.",
-        "website": "https://pizzahut.com"
+        "position": "Intern",
+        "startDate": "2020-10-01",
+        "summary": "- Full stack developer with React and NodeJS\n- Natural Language Processing",
+        "website": "https://vbee.vn/"
       }
     ],
     "visible": true

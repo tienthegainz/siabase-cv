@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FaCloudUploadAlt } from 'react-icons/fa';
@@ -34,25 +34,43 @@ const SkynetUploadModal = () => {
     return () => unbind();
   }, [emitter, events]);
 
+  const uploadingToast = useRef(null);
+
+  const notifyUploadingToast = () => {
+    uploadingToast.current = toast('Uploading...', { autoClose: false });
+  };
+
+  const closeUploadingToast = () => {
+    toast.dismiss(uploadingToast.current);
+  };
+
   const handleOpenLink = () => {
     if (typeof window !== 'undefined') {
       window && window.open(skylink);
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async type => {
     setIsUploading(true);
+    notifyUploadingToast();
 
     try {
+      setTimeout(
+        () =>
+          toast.dark(
+            'This process takes a while. Feel free play around with our app while waiting'
+          ),
+        3000
+      );
+
       const response = await fetch(
         `${process.env.SERVER_HOST}/uploadToSkynet`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
           },
-          body: JSON.stringify({ id, type: 'single' })
+          body: JSON.stringify({ id, type })
         }
       );
 
@@ -66,8 +84,13 @@ const SkynetUploadModal = () => {
           }
         });
 
-      toast(message);
+      if (message) {
+        toast(message);
+        closeUploadingToast();
+      }
     } catch (error) {
+      if (error) throw error;
+
       toast.error(error);
     } finally {
       setIsUploading(false);
@@ -114,7 +137,7 @@ const SkynetUploadModal = () => {
               icon={FaCloudUploadAlt}
               className='mt-5'
               isLoading={isUploading}
-              onClick={handleUpload}
+              onClick={() => handleUpload('single')}
             >
               {t('modals.skynetUpload.button')}
             </Button>

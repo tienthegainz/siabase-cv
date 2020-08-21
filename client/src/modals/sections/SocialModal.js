@@ -42,13 +42,12 @@ const SocialModal = () => {
           <div className='grid grid-cols-2 gap-8'>
             <Input
               label={t('builder.social.network')}
-              placeholder='Twitter'
+              placeholder='Facebook'
               {...getFieldProps(formik, schema, 'network')}
             />
 
             <Input
               label={t('builder.social.username')}
-              placeholder='KingOKings'
               {...getFieldProps(formik, schema, 'username')}
             />
 
