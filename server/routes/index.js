@@ -42,27 +42,23 @@ router.post('/getNamebaseDomainName', async (req, res) => {
 
 // Upload avatar
 router.post('/avatar', upload.single('avatar'), async (req, res) => {
+  // MULTER process and assign FILE object to req
+  const processedFile = req.file || {};
+
+  // Uploaded file's original name
+  let orgName = processedFile.originalname || '';
+  orgName = orgName.trim().replace(/ /g, '-');
+
+  // Full path of uploaded file on server
+  const fullPathInServer = processedFile.path;
+
+  // Add orignal file extension, as multer name the file without extension by default
+  const newFullPath = `${fullPathInServer}.${orgName.split('.').slice(1).pop() || ''}`;
+
   try {
-    // MULTER process and assign FILE object to req
-    const processedFile = req.file || {};
-
-    // Uploaded file's original name
-    let orgName = processedFile.originalname || '';
-    orgName = orgName.trim().replace(/ /g, '-');
-
-    // Full path of uploaded file on server
-    const fullPathInServer = processedFile.path;
-
-    // Add orignal file extension, as multer name the file without extension by default
-    const newFullPath = `${fullPathInServer}.${orgName.split('.').slice(1).pop() || ''}`;
-
     fs.renameSync(fullPathInServer, newFullPath);
 
     let skylink = await skynet.uploadFile(`./${newFullPath}`);
-
-    fs.unlink(`./${newFullPath}`, error => {
-      if (error) throw error;
-    });
 
     skylink = skylink.toString().slice(6);
 
@@ -75,6 +71,14 @@ router.post('/avatar', upload.single('avatar'), async (req, res) => {
     if (error) throw error;
 
     res.status(500).json(error);
+  } finally {
+    fs.unlink(`./${newFullPath}`, error => {
+      if (error) {
+        res.status(500).json(error);
+
+        throw error;
+      }
+    });
   }
 });
 
