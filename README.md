@@ -21,12 +21,14 @@
 
 You have complete control over what goes into your resume, how it looks, what colors, what templates, even the layout in which sections placed. Want a dark mode resume? It’s as easy as editing 3 values and you’re done. You don’t need to wait to see your changes either. Everything you type, everything you change, appears immediately on your resume and gets updated in real time.
 
+<img src="https://github.com/DrNguyen2525/siabase-cv/blob/master/client/static/images/share.png" alt="overview" />
+
 # Features
 
 - Manage multiple resumes with one account
 - Sync your data across devices
 - Sign in with Google, or sign in anonymously just to test the app
-- Send your resume to others with a unique sharable link
+- Send your resume to others with a unique sharable [Skylink](https://support.siasky.net/article/3p9z5g9s0e-skynet-how-to)
 - Choose from 6 vibrant templates and more coming soon
 - Structure sections and change layouts the way you want to
 - Rename sections according to your language/industry
