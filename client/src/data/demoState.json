@@ -142,7 +142,7 @@
   "profile": {
     "address": {
       "city": "Hanoi",
-      "line1": "68/58 Ngoc Thuy St.",
+      "line1": "250/78 Somewhere St.",
       "line2": "",
       "pincode": "100000"
     },
@@ -226,7 +226,7 @@
   },
   "skynet": {
     "isSyncedWithSkynet": false,
-    "skylink": "https://siasky.net/fALaU3ijhgC0LpjWIdFrXW633DpjwDrI7atzmhcOjZs95w"
+    "skylink": ""
   },
   "social": {
     "heading": "Social Network",
@@ -270,7 +270,7 @@
         "id": "d7c64937-0cb9-41b1-a3a6-0679c882fe63",
         "position": "Intern",
         "startDate": "2020-07-15",
-        "summary": "IT Training\n- Git\n- Java core\n- Hibernate\n- Spring Core\n- Spring MVC\n- MySQL\n- Project 1\n- Unit test",
+        "summary": "IT Training\n- Git\n- Java core\n- Hibernate\n- Spring Core\n- Spring MVC\n- MySQL\n- Soccer Fields Management System Project\n- Unit test",
         "website": "https://sun-asterisk.vn/"
       },
       {

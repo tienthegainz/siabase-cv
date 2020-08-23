@@ -1,9 +1,10 @@
-import download from 'downloadjs';
 // import firebase from 'gatsby-plugin-firebase';
+import download from 'downloadjs';
 import { clone } from 'lodash';
-import React, { memo, useContext, useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaPrint } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import Button from '../../components/shared/Button';
 import ModalContext from '../../contexts/ModalContext';
 import { useSelector } from '../../contexts/ResumeContext';
@@ -34,54 +35,64 @@ const ExportModal = () => {
     }
   };
 
-  const handleSinglePageDownload = async () => {
-    setLoadingSingle(true);
+  const singleDownloadingToast = useRef(null);
+  const multiDownloadingToast = useRef(null);
+
+  const notifyDownloadingToast = downloadingToast => {
+    downloadingToast.current = toast('Downloading...', { autoClose: false });
+  };
+
+  const closeDownloadingToast = downloadingToast => {
+    toast.dismiss(downloadingToast.current);
+  };
+
+  const handleDownload = async type => {
+    type === 'single' ? setLoadingSingle(true) : setLoadingMulti(true);
 
     // const printResume = firebase.functions().httpsCallable('printResume');
-    // const { data } = await printResume({ id, type: 'single' });
+    // const { data } = await printResume({ id, type });
     // const blob = b64toBlob(data, 'application/pdf');
     // download(blob, `SiabaseCV-${id}-single.pdf`, 'application/pdf');
 
-    const response = await fetch(`${process.env.SERVER_HOST}/exportPdf`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id, type: 'single' })
-    });
+    type === 'single'
+      ? notifyDownloadingToast(singleDownloadingToast)
+      : notifyDownloadingToast(multiDownloadingToast);
 
-    const { b64EncodedData } = await response.json();
+    try {
+      setTimeout(
+        () =>
+          toast.dark(
+            'This process may take a while. Feel free play around with our app while waiting'
+          ),
+        3000
+      );
 
-    const blob = b64toBlob(b64EncodedData, 'application/pdf');
+      const response = await fetch(`${process.env.SERVER_HOST}/exportPdf`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id, type })
+      });
 
-    download(blob, `SiabaseCV-${id}-single.pdf`, 'application/pdf');
+      const { b64EncodedData } = await response.json();
 
-    setLoadingSingle(false);
-  };
+      const blob = b64toBlob(b64EncodedData, 'application/pdf');
 
-  const handleMultiPageDownload = async () => {
-    setLoadingMulti(true);
+      download(blob, `SiabaseCV-${id}-${type}.pdf`, 'application/pdf');
 
-    // const printResume = firebase.functions().httpsCallable('printResume');
-    // const { data } = await printResume({ id, type: 'multi' });
-    // const blob = b64toBlob(data, 'application/pdf');
-    // download(blob, `SiabaseCV-${id}-multi.pdf`, 'application/pdf');
+      toast('Download completed');
 
-    const response = await fetch(`${process.env.SERVER_HOST}/exportPdf`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id, type: 'multi' })
-    });
+      type === 'single'
+        ? closeDownloadingToast(singleDownloadingToast)
+        : closeDownloadingToast(multiDownloadingToast);
+    } catch (error) {
+      if (error) throw error;
 
-    const { b64EncodedData } = await response.json();
-
-    const blob = b64toBlob(b64EncodedData, 'application/pdf');
-
-    download(blob, `SiabaseCV-${id}-multi.pdf`, 'application/pdf');
-
-    setLoadingMulti(false);
+      toast.error(error);
+    } finally {
+      type === 'single' ? setLoadingSingle(false) : setLoadingMulti(false);
+    }
   };
 
   const handleExportToJson = () => {
@@ -128,14 +139,14 @@ const ExportModal = () => {
           <div className='flex'>
             <Button
               isLoading={isLoadingSingle}
-              onClick={handleSinglePageDownload}
+              onClick={() => handleDownload('single')}
             >
               {t('modals.export.downloadPDF.buttons.single')}
             </Button>
             <Button
               className='ml-8'
               isLoading={isLoadingMulti}
-              onClick={handleMultiPageDownload}
+              onClick={() => handleDownload('multi')}
             >
               {t('modals.export.downloadPDF.buttons.multi')}
             </Button>

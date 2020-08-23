@@ -114,16 +114,11 @@ const SkynetUploadModal = () => {
 
         <hr className='my-8' />
 
+        <h5 className='text-xl font-semibold mb-4'>
+          {t('modals.skynetUpload.yourResumeOnSkynet')}
+        </h5>
         {skylink && (
-          <div>
-            <h5 className='text-xl font-semibold mb-4'>
-              {t('modals.skynetUpload.yourResumeOnSkynet')}
-            </h5>
-
-            <div>
-              <Input type='action' value={skylink} onClick={handleOpenLink} />
-            </div>
-          </div>
+          <Input type='action' value={skylink} onClick={handleOpenLink} />
         )}
 
         {isSyncedWithSkynet ? (

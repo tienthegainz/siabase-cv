@@ -21,7 +21,7 @@
 
 You have complete control over what goes into your resume, how it looks, what colors, what templates, even the layout in which sections placed. Want a dark mode resume? It’s as easy as editing 3 values and you’re done. You don’t need to wait to see your changes either. Everything you type, everything you change, appears immediately on your resume and gets updated in real time.
 
-<img src="https://github.com/DrNguyen2525/siabase-cv/blob/master/client/static/images/share.png" alt="overview" />
+<img src="https://github.com/DrNguyen2525/siabase-cv/blob/master/client/static/images/overview.png" alt="overview" />
 
 # Features
 
