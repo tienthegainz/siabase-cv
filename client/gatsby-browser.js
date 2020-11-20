@@ -33,15 +33,15 @@ export const wrapRootElement = ({ element }) => (
   <SettingsProvider>
     <MuiThemeProvider theme={theme}>
       <ModalProvider>
-        <UserProvider>
-          <DatabaseProvider>
-            <ResumeProvider>
-              {/* <StorageProvider> */}
-              {element}
-              {/* </StorageProvider> */}
-            </ResumeProvider>
-          </DatabaseProvider>
-        </UserProvider>
+        {/* <UserProvider> */}
+        <DatabaseProvider>
+          <ResumeProvider>
+            {/* <StorageProvider> */}
+            {element}
+            {/* </StorageProvider> */}
+          </ResumeProvider>
+        </DatabaseProvider>
+        {/* </UserProvider> */}
       </ModalProvider>
     </MuiThemeProvider>
   </SettingsProvider>

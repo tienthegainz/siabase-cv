@@ -11,20 +11,14 @@ const Home = () => {
     <Wrapper>
       <Helmet>
         <title>{t('shared.appName')}</title>
-        <link rel='canonical' href='https://siabase-cv.web.app/' />
+        <link rel='canonical' href='#' />
       </Helmet>
 
       <div className='container px-8 xl:px-0 text-center md:text-left mt-24'>
         <Hero />
 
         <p className='leading-loose text-lg mt-16'>
-          SiabaseCV is a free and open source resume builder that is built
-          leveraging Skynet decentralized CDN and Namebase top-level domain
-          (TLD) name registrar to make the mundane tasks of creating, updating
-          and sharing your CV as easy as writing alphabet. With this app, you
-          can create multiple resumes, share them with recruiters through a
-          unique link and print as PDF, all for free, no advertisements, without
-          losing the integrity and privacy of your data.
+          EzCVは簡単な履歴書ビルダーのアプリです。楽しみに使っています。
         </p>
       </div>
     </Wrapper>

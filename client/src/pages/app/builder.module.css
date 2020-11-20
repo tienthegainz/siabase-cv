@@ -5,10 +5,14 @@
 .left {
   width: calc(100vw / 4);
   box-shadow: var(--left-shadow);
+  /* @apply bg-primary-50 top-0 bottom-0 left-0 z-10; */
   @apply bg-primary-50 absolute top-0 bottom-0 left-0 z-10;
 }
 
 .center {
+  /* width: 75vw; */
+  display: flex;
+  justify-content: center;
   @apply relative z-0 h-screen overflow-scroll;
 }
 

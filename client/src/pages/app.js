@@ -16,8 +16,6 @@ const App = () => (
       <Redirect noThrow from='/app' to='/app/dashboard' exact />
       <PrivateRoute path='/app/dashboard' component={Dashboard} />
       <PrivateRoute path='/app/builder/:id' component={Builder} />
-      {/* <Dashboard path='/app/dashboard' />
-      <Builder path='/app/builder/:id' /> */}
       <NotFound default />
     </Router>
   </Wrapper>

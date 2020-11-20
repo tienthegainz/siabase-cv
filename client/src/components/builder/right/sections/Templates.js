@@ -94,13 +94,6 @@ const Templates = ({ id }) => {
               [styles.selected]: template === x.id
             })}
           >
-            {/* <GatsbyImage
-              alt={x.name}
-              loading='eager'
-              className='w-full'
-              style={{ height: '230px' }}
-              fluid={previews[x.id].childImageSharp.fluid}
-            /> */}
             <img
               alt={x.name}
               loading='eager'

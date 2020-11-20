@@ -15,12 +15,12 @@ const TopNavbar = () => {
         <Link to='/'>
           <img
             src={theme === 'Light' ? FullLogoLight : FullLogoDark}
-            alt='SiabaseCV'
+            alt='EzCV'
             width='35%'
           />
         </Link>
 
-        <Avatar className='ml-8' />
+        {/* <Avatar className='ml-8' /> */}
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ const LeftNavbar = () => {
 
       <hr className='mt-auto my-6' />
 
-      <Avatar />
+      {/* <Avatar /> */}
     </div>
   );
 };

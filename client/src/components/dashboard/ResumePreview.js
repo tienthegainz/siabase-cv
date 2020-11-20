@@ -68,9 +68,9 @@ const ResumePreview = ({ resume }) => {
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={handleDuplicate}>
+          {/* <MenuItem onClick={handleDuplicate}>
             {t('dashboard.buttons.duplicate')}
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem onClick={handleRename}>
             {t('dashboard.buttons.rename')}
           </MenuItem>

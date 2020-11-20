@@ -3,9 +3,9 @@ import React, { createContext, memo, useEffect, useState } from 'react';
 import themeConfig from '../data/themeConfig';
 
 const defaultState = {
-  theme: 'Dark',
+  theme: 'Light',
   setTheme: () => {},
-  language: 'en',
+  language: 'jp',
   setLanguage: () => {}
 };
 

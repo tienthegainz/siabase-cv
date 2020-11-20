@@ -1,6 +1,6 @@
 {
   "shared": {
-    "appName": "SiabaseCV",
+    "appName": "EzCV",
     "shortDescription": "A free and open source resume builder.",
     "forms": {
       "name": "Name",

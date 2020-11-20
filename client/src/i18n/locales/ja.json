@@ -1,6 +1,6 @@
 {
   "shared": {
-    "appName": "SiabaseCV",
+    "appName": "EzCV",
     "shortDescription": "オープンソースで無料の履歴書作成サービス",
     "forms": {
       "name": "氏名",
@@ -39,7 +39,7 @@
   },
   "landing": {
     "hero": {
-      "goToApp": "アプリに移動"
+      "goToApp": "すぐ試して"
     }
   },
   "dashboard": {
