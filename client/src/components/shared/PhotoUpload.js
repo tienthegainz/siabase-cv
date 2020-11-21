@@ -100,7 +100,7 @@ const PhotoUpload = () => {
 
   return (
     <div className='flex items-center'>
-      <Tooltip
+      {/* <Tooltip
         title={t('builder.tooltips.uploadPhotograph')}
         placement='right-start'
       >
@@ -121,7 +121,7 @@ const PhotoUpload = () => {
             onChange={handleImageUpload}
           />
         </div>
-      </Tooltip>
+      </Tooltip> */}
 
       <Input
         name='photograph'

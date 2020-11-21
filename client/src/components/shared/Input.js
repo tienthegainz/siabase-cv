@@ -23,12 +23,18 @@ const Input = ({
   className,
   isRequired,
   placeholder,
+  autocomplete = [],
   type = 'text'
 }) => {
   const { t } = useTranslation();
   const [uuid, setUuid] = useState(null);
   const stateValue = useSelector(path, '');
   const dispatch = useDispatch();
+
+  // Recommend
+  const [show, setShow] = useState(false);
+  const [userInput, setUserInput] = useState('');
+  const [optionList, setOptionList] = useState([]);
 
   useEffect(() => {
     setUuid(uuidv4());
@@ -38,6 +44,7 @@ const Input = ({
   onChange = isFunction(onChange)
     ? onChange
     : e => {
+        setShow(true);
         dispatch({
           type: 'on_input',
           payload: {
@@ -45,7 +52,7 @@ const Input = ({
             value: e.target.value
           }
         });
-        dispatch({ type: 'update_skynet_synced_status' });
+        // dispatch({ type: 'update_skynet_synced_status' });
       };
 
   return (
@@ -62,15 +69,31 @@ const Input = ({
 
         {(type === 'text' || type === 'date') && (
           <div className='relative grid items-center'>
-            <input
-              id={uuid}
-              name={name}
-              type={type}
-              value={value}
-              onBlur={onBlur}
-              onChange={onChange}
-              placeholder={placeholder}
-            />
+            {autocomplete.length !== 0 ? (
+              <select
+                id={uuid}
+                name={name}
+                type={type}
+                value={value}
+                onBlur={onBlur}
+                onChange={onChange}
+                placeholder={placeholder}
+              >
+                {autocomplete.map(e => {
+                  return <option value={e}>{e}</option>;
+                })}
+              </select>
+            ) : (
+              <input
+                id={uuid}
+                name={name}
+                type={type}
+                value={value}
+                onBlur={onBlur}
+                onChange={onChange}
+                placeholder={placeholder}
+              />
+            )}
           </div>
         )}
 

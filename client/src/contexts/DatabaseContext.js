@@ -17,6 +17,7 @@ const defaultState = {
   getResumes: async () => { },
   updateResume: async () => { },
   updateResumeSkylink: async () => { },
+  getSkills: async () => { },
   debouncedUpdateResume: async () => { }
 };
 
@@ -35,6 +36,15 @@ const DatabaseProvider = ({ children }) => {
         .database()
         .ref(`resumes/${id}`)
         .once('value');
+      return snapshot.val();
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const getSkills = async () => {
+    try {
+      const snapshot = await firebase.database().ref(`skills`).once('value');
       return snapshot.val();
     } catch (error) {
       return null;
@@ -138,6 +148,7 @@ const DatabaseProvider = ({ children }) => {
         updateResume,
         updateResumeSkylink,
         deleteResume,
+        getSkills,
         debouncedUpdateResume
       }}
     >
