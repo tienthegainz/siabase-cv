@@ -41,7 +41,6 @@ const Dashboard = ({ user }) => {
           Object.keys(data).forEach(key => resumesArr.push(data[key]));
           setResumes(resumesArr);
         }
-        console.log(user, snapshot, snapshot.val())
       });
 
     firebase

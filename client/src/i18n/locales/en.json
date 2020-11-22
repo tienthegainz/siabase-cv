@@ -52,7 +52,8 @@
     },
     "buttons": {
       "duplicate": "Duplicate",
-      "rename": "Rename"
+      "rename": "Rename",
+      "recommend": "Company recommend"
     },
     "helpText": "You are going to be creating a new resume from scratch, but first, let's give it a name. This can be the name of the role you want to apply for, or if you're making a resume for a friend, you could call it Alex's Resume."
   },
@@ -180,7 +181,7 @@
       }
     },
     "recommendation": {
-      "goToRecommendation": "Go to Recommendation"
+      "goToRecommendation": "Company recommendation"
     },
     "about": {
       "donate": {
@@ -209,6 +210,10 @@
       "backToDashboard": "Go Back to Dashboard"
     },
     "emptyList": "This list is empty."
+  },
+  "recommendation": {
+    "title": "Company recommendation",
+    "vacancies": "Vacancies"
   },
   "modals": {
     "auth": {

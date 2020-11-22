@@ -1,7 +1,11 @@
+/* eslint-disable guard-for-in */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useSelector } from '../../contexts/ResumeContext'
-import firebase from 'gatsby-plugin-firebase';
+import { useContext } from 'react';
+import DatabaseContext from '../../contexts/DatabaseContext';
+import { useState } from 'react';
+import { languages } from '../../i18n';
+import { useTranslation } from 'react-i18next';
 
 const dataColor = [
   '#5875DB',
@@ -12,21 +16,6 @@ const dataColor = [
   '#00BCD4',
   '#E91E63',
   '#009688'
-];
-
-const dataLanguage = [
-  'ReactJs',
-  'VueJs',
-  'Angular',
-  'NodeJS',
-  'Express',
-  'Python'
-];
-
-const dataVacancies = [
-  'Fontend Developer',
-  'Web FullStack Developer',
-  'AI Research'
 ];
 
 const Wrapper = styled.div`
@@ -69,7 +58,6 @@ const AvatarWrapper = styled.div`
 const Avatar = styled.img`
   height: 140px;
   width: 140px;
-  border-radius: 70px;
 `;
 
 const Right = styled.div`
@@ -80,12 +68,12 @@ const Right = styled.div`
 `;
 
 const Name = styled.div`
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 500;
 `;
 
 const Description = styled.div`
-  font-size: 14px;
+  font-size: 20px;
 `;
 
 const ListProgramLanguage = styled.div`
@@ -104,8 +92,9 @@ const ProgramLanguageWrapper = styled.div`
 `;
 
 const ProgramLanguage = styled.div`
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 300;
+  color: white;
 `;
 
 const VacanciesWrapper = styled.div`
@@ -114,97 +103,105 @@ const VacanciesWrapper = styled.div`
 `;
 
 const VacanciesTitle = styled.div`
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 500;
+  color: #ff9900;
 `;
 
 const Vacancies = styled.div`
   font-weight: 300;
+  font-size: 20px;
 `;
 
-const renderVacancies = () => {
-  let vacancies = '';
-  dataVacancies.map((item, key) => {
-    if (key === dataVacancies.length - 1) {
-      vacancies += item;
-    } else {
-      vacancies += item + ', '
-    }
-  });
-  return vacancies;
-};
+const RecommendationScreen = ({ id }) => {
+  const { getResume, getCompanies } = useContext(DatabaseContext);
+  const [recommendation, setRecommendation] = useState([]);
 
-const RecommendationScreen = () => {
-  const state = useSelector();
+  const { t } = useTranslation();
+
   useEffect(() => {
-    const resumesRef = 'skills';
-    firebase
-      .database()
-      .ref(resumesRef)
-      .on('value', snapshot => {
-        if (snapshot.val()) {
-          console.log(snapshot.val())
-        }
+    const getRecommendCompanies = async () => {
+      const resume = await getResume(id);
+      const skills = resume.skills.items.map(val => {
+        return { language: val.name, level: val.level };
       });
-  })
+
+      const allCompaniesObj = await getCompanies();
+
+      const allCompanies = [];
+      // eslint-disable-next-line guard-for-in
+      for (const key in allCompaniesObj) {
+        const item = { id: key, ...allCompaniesObj[key] };
+        const langs = [];
+        for (const Lkey in item.requirements) {
+          const a = { language: Lkey, level: item.requirements[Lkey] };
+          langs.push(a);
+        }
+        item.requirements = langs;
+        allCompanies.push(item);
+      }
+
+      const recomendCompanies = allCompanies.filter(val => {
+        const r = val.requirements;
+        let ok = false;
+
+        r.some(element => {
+          skills.some(skill => {
+            if (
+              skill.language === element.language &&
+              skill.level === element.level
+            )
+              ok = true;
+            return true;
+          });
+        });
+        return ok;
+      });
+
+      setRecommendation(recomendCompanies);
+    };
+
+    getRecommendCompanies();
+  }, []);
+
   return (
     <Wrapper>
       <TitleWrapper>
-        <Title>Our Recommendation</Title>
+        <Title>{t('recommendation.title')}</Title>
       </TitleWrapper>
-      <RecommendationWrapper>
-        <AvatarWrapper>
-          <Avatar
-            alt=''
-            src='https://cdn.itviec.com/employers/sun-inc/logo/social/cDcdNbGCaVV5xgnmz8Vfv4ed/framgia-inc-logo.jpg' 
-          />
-        </AvatarWrapper>
-        <Right>
-          <Name>Sun* Inc</Name>
-          <Description>Cùng những con người đam mê thử thách, chúng tôi tạo ra thay đổi tích cực cho xã hội thông qua các sản phẩm và lĩnh vực kinh doanh.
-          </Description>
-          <ListProgramLanguage>
-            {dataLanguage.map((item, key) => {
-              return (
-                <ProgramLanguageWrapper color={dataColor[key]}>
-                  <ProgramLanguage>{item}</ProgramLanguage>
-                </ProgramLanguageWrapper> 
-              )}
-            )}
-          </ListProgramLanguage>
-          <VacanciesWrapper>
-            <VacanciesTitle>Vacancies |</VacanciesTitle>
-            <Vacancies>{renderVacancies()}</Vacancies>
-          </VacanciesWrapper>
-        </Right>
-      </RecommendationWrapper>
-      <RecommendationWrapper>
-        <AvatarWrapper>
-          <Avatar
-            alt=''
-            src='https://cdn.itviec.com/employers/sun-inc/logo/social/cDcdNbGCaVV5xgnmz8Vfv4ed/framgia-inc-logo.jpg' 
-          />
-        </AvatarWrapper>
-        <Right>
-          <Name>Sun* Inc</Name>
-          <Description>Cùng những con người đam mê thử thách, chúng tôi tạo ra thay đổi tích cực cho xã hội thông qua các sản phẩm và lĩnh vực kinh doanh.
-          </Description>
-          <ListProgramLanguage>
-            {dataLanguage.map((item, key) => {
-              return (
-                <ProgramLanguageWrapper color={dataColor[key]}>
-                  <ProgramLanguage>{item}</ProgramLanguage>
-                </ProgramLanguageWrapper> 
-              )}
-            )}
-          </ListProgramLanguage>
-          <VacanciesWrapper>
-            <VacanciesTitle>Vacancies |</VacanciesTitle>
-            <Vacancies>{renderVacancies()}</Vacancies>
-          </VacanciesWrapper>
-        </Right>
-      </RecommendationWrapper>
-      
+      {recommendation.map((val, idx) => (
+        <RecommendationWrapper
+          key={idx}
+          onClick={() => {
+            window.open(val.url, '_blank');
+          }}
+        >
+          <AvatarWrapper>
+            <Avatar alt={idx} src={val.avatar} />
+          </AvatarWrapper>
+          <Right>
+            <Name>{val.name}</Name>
+            <Description>{val.description}</Description>
+            <ListProgramLanguage>
+              {val.requirements.map((item, key) => {
+                return (
+                  <ProgramLanguageWrapper color={dataColor[key]}>
+                    <ProgramLanguage>{item.language}</ProgramLanguage>
+                  </ProgramLanguageWrapper>
+                );
+              })}
+            </ListProgramLanguage>
+            <VacanciesWrapper>
+              <VacanciesTitle>{t('recommendation.vacancies')} |</VacanciesTitle>
+              <Vacancies>
+                {val.requirements.map(item => {
+                  return item.language + ' ' + item.level + ', ';
+                })}
+              </Vacancies>
+            </VacanciesWrapper>
+          </Right>
+        </RecommendationWrapper>
+      ))}
     </Wrapper>
   );
 };

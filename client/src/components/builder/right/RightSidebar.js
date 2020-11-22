@@ -45,7 +45,7 @@ const SidebarSection = ({ id, event }) => {
   );
 };
 
-const RightSidebar = () => {
+const RightSidebar = (props) => {
   return (
     <div className='flex'>
       <div id='RightSidebar' className={styles.container}>

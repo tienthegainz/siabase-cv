@@ -18,7 +18,7 @@ const App = () => (
       <PrivateRoute path='/app/dashboard' component={Dashboard} />
       <PrivateRoute path='/app/builder/:id' component={Builder} />
       <PrivateRoute
-        path='/app/recommendation'
+        path='/app/recommendation/:id'
         component={RecommendationScreen}
       />
       {/* <Dashboard path='/app/dashboard' />

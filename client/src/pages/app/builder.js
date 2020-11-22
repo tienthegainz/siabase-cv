@@ -64,7 +64,7 @@ const Builder = ({ id }) => {
             <Artboard />
           </div>
           <div className={styles.right}>
-            <RightSidebar />
+            <RightSidebar resume_id={id} />
           </div>
         </div>
       ),

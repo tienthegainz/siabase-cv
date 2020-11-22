@@ -52,7 +52,8 @@
     },
     "buttons": {
       "duplicate": "複製",
-      "rename": "名前を変更"
+      "rename": "名前を変更",
+      "recommend": "会社のお勧め"
     },
     "helpText": "新しい履歴書を作成したら、まず履歴書に名前を付けましょう。 これはあなたが応募する役職の名前になります。 もし友達の履歴書を代わりに作っているなら、その友達の履歴書という名前にするのもよいでしょう。"
   },
@@ -178,6 +179,9 @@
         "button": "アカウントを削除"
       }
     },
+    "recommendation": {
+      "goToRecommendation": "会社のお勧め"
+    },
     "about": {
       "donate": {
         "heading": "SiabaseCV に寄付する",
@@ -205,6 +209,10 @@
       "backToDashboard": "ダッシュボードに戻る"
     },
     "emptyList": "このリストは空です。"
+  },
+  "recommendation": {
+    "title": "会社のお勧め",
+    "vacancies": "欠員"
   },
   "modals": {
     "auth": {

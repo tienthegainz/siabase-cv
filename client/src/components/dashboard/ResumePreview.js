@@ -23,10 +23,12 @@ const ResumePreview = ({ resume }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleDuplicate = () => {
-    duplicateResume(resume);
-    setAnchorEl(null);
-  };
+  // const handleDuplicate = () => {
+  //   duplicateResume(resume);
+  //   setAnchorEl(null);
+  // };
+
+  const handleRecommend = () => navigate(`/app/recommendation/${resume.id}`);
 
   const handleRename = () => {
     emitter.emit(events.CREATE_RESUME_MODAL, resume);
@@ -73,6 +75,9 @@ const ResumePreview = ({ resume }) => {
           </MenuItem> */}
           <MenuItem onClick={handleRename}>
             {t('dashboard.buttons.rename')}
+          </MenuItem>
+          <MenuItem onClick={handleRecommend}>
+            {t('dashboard.buttons.recommend')}
           </MenuItem>
           <MenuItem onClick={handleDelete}>
             <span className='text-red-600 font-medium'>
