@@ -80,7 +80,11 @@ const Input = ({
                 placeholder={placeholder}
               >
                 {autocomplete.map(e => {
-                  return <option value={e}>{e}</option>;
+                  return (
+                    <option value={e} key={e}>
+                      {e}
+                    </option>
+                  );
                 })}
               </select>
             ) : (

@@ -127,7 +127,7 @@ const PhotoUpload = () => {
         name='photograph'
         label={t('builder.profile.photograph')}
         placeholder={t('builder.profile.photographPlaceholder')}
-        className='pl-6 w-full'
+        // className='pl-6 w-full'
         path='profile.photograph'
       />
     </div>
