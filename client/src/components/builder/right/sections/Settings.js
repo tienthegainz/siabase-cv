@@ -34,7 +34,7 @@ const Settings = ({ id }) => {
     const lang = e.target.value;
     setLanguage(lang);
     dispatch({ type: 'change_language', payload: lang });
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
   };
 
   // const handleDeleteAccount = () => {

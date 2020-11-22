@@ -51,7 +51,7 @@ const Actions = ({ id }) => {
     }
 
     dispatch({ type: 'load_demo_data' });
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
     setLoadDemoText(t('builder.actions.loadDemoData.button'));
   };
 
@@ -63,7 +63,7 @@ const Actions = ({ id }) => {
 
     setResetText(t('builder.actions.resetEverything.button'));
     dispatch({ type: 'reset_data' });
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
   };
 
   return (

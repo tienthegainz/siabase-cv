@@ -50,7 +50,7 @@ const Layout = ({ id }) => {
         }
       });
     }
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
   };
 
   const handleResetLayout = () => {
@@ -60,7 +60,7 @@ const Layout = ({ id }) => {
     }
 
     dispatch({ type: 'reset_layout' });
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
     setResetLayoutText(t('builder.layout.reset'));
   };
 

@@ -55,15 +55,15 @@ const DataModal = ({
           isFunction(onEdit)
             ? await onEdit(newData)
             : (() => {
-                dispatch({
-                  type: 'on_edit_item',
-                  payload: {
-                    path,
-                    value: newData
-                  }
-                });
-                dispatch({ type: 'update_skynet_synced_status' });
-              })();
+              dispatch({
+                type: 'on_edit_item',
+                payload: {
+                  path,
+                  value: newData
+                }
+              });
+              // dispatch({ type: 'update_skynet_synced_status' });
+            })();
         }
       } else {
         newData.id = uuidv4();
@@ -71,15 +71,15 @@ const DataModal = ({
         isFunction(onCreate)
           ? await onCreate(newData)
           : (() => {
-              dispatch({
-                type: 'on_add_item',
-                payload: {
-                  path,
-                  value: newData
-                }
-              });
-              dispatch({ type: 'update_skynet_synced_status' });
-            })();
+            dispatch({
+              type: 'on_add_item',
+              payload: {
+                path,
+                value: newData
+              }
+            });
+            // dispatch({ type: 'update_skynet_synced_status' });
+          })();
       }
 
       modalRef.current.handleClose();
@@ -93,8 +93,8 @@ const DataModal = ({
   const getTitle = isEmpty(title)
     ? getModalText(isEditMode, name)
     : isEditMode
-    ? title.edit
-    : title.create;
+      ? title.edit
+      : title.create;
 
   const submitAction = (
     <Button type='submit' onClick={() => onSubmit(values)} isLoading={loading}>

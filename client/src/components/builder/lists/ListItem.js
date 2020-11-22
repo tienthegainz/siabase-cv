@@ -38,7 +38,7 @@ const ListItem = ({
       }
     });
 
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
 
     handleClose();
   };
@@ -52,7 +52,7 @@ const ListItem = ({
       }
     });
 
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
 
     handleClose();
   };
@@ -66,7 +66,7 @@ const ListItem = ({
       }
     });
 
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
 
     handleClose();
   };

@@ -18,7 +18,7 @@ const Fonts = ({ id }) => {
         value
       }
     });
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
   };
 
   return (

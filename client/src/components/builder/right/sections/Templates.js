@@ -75,7 +75,7 @@ const Templates = ({ id }) => {
         value: templatePreviews[valueToUpdate]
       }
     });
-    dispatch({ type: 'update_skynet_synced_status' });
+    // dispatch({ type: 'update_skynet_synced_status' });
   };
 
   return (

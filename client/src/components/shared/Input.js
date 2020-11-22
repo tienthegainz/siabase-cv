@@ -44,16 +44,16 @@ const Input = ({
   onChange = isFunction(onChange)
     ? onChange
     : e => {
-        setShow(true);
-        dispatch({
-          type: 'on_input',
-          payload: {
-            path,
-            value: e.target.value
-          }
-        });
-        // dispatch({ type: 'update_skynet_synced_status' });
-      };
+      setShow(true);
+      dispatch({
+        type: 'on_input',
+        payload: {
+          path,
+          value: e.target.value
+        }
+      });
+      // dispatch({ type: 'update_skynet_synced_status' });
+    };
 
   return (
     <div className={className}>
@@ -88,16 +88,16 @@ const Input = ({
                 })}
               </select>
             ) : (
-              <input
-                id={uuid}
-                name={name}
-                type={type}
-                value={value}
-                onBlur={onBlur}
-                onChange={onChange}
-                placeholder={placeholder}
-              />
-            )}
+                <input
+                  id={uuid}
+                  name={name}
+                  type={type}
+                  value={value}
+                  onBlur={onBlur}
+                  onChange={onChange}
+                  placeholder={placeholder}
+                />
+              )}
           </div>
         )}
 

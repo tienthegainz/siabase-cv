@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from './ResumeContext';
 import UserContext from './UserContext';
 
 const defaultState = {
-  uploadPhotograph: async () => {}
+  uploadPhotograph: async () => { }
 };
 
 const StorageContext = createContext(defaultState);
@@ -69,7 +69,7 @@ const StorageProvider = ({ children }) => {
           }
         });
 
-        dispatch({ type: 'update_skynet_synced_status' });
+        // dispatch({ type: 'update_skynet_synced_status' });
 
         toast.update(toastId.current, {
           render:

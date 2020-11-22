@@ -26,7 +26,7 @@ const ImportModal = () => {
     fr.addEventListener('load', () => {
       const payload = JSON.parse(fr.result);
       dispatch({ type: 'on_import', payload });
-      dispatch({ type: 'update_skynet_synced_status' });
+      // dispatch({ type: 'update_skynet_synced_status' });
       setOpen(false);
     });
     fr.readAsText(event.target.files[0]);
@@ -37,7 +37,7 @@ const ImportModal = () => {
     fr.addEventListener('load', () => {
       const payload = JSON.parse(fr.result);
       dispatch({ type: 'on_import_jsonresume', payload });
-      dispatch({ type: 'update_skynet_synced_status' });
+      // dispatch({ type: 'update_skynet_synced_status' });
       setOpen(false);
     });
     fr.readAsText(event.target.files[0]);

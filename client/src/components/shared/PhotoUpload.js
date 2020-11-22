@@ -84,7 +84,7 @@ const PhotoUpload = () => {
             }
           });
 
-          dispatch({ type: 'update_skynet_synced_status' });
+          // dispatch({ type: 'update_skynet_synced_status' });
         }
 
         if (message) {
