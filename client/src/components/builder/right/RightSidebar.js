@@ -7,6 +7,7 @@ import Actions from './sections/Actions';
 import Colors from './sections/Colors';
 import Fonts from './sections/Fonts';
 import Layout from './sections/Layout';
+import Recommendation from './sections/Recommendation';
 import Settings from './sections/Settings';
 import Templates from './sections/Templates';
 
@@ -24,6 +25,8 @@ const getComponent = id => {
       return Actions;
     case 'settings':
       return Settings;
+    case 'recommendation':
+      return Recommendation;
     default:
       throw new Error();
   }

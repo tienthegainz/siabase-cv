@@ -6,6 +6,7 @@ import Wrapper from '../components/shared/Wrapper';
 import NotFound from './404';
 import Builder from './app/builder';
 import Dashboard from './app/dashboard';
+import RecommendationScreen from './app/recommendation';
 
 // if (window.location.hostname === 'localhost')
 //   firebase.functions().useFunctionsEmulator('http://localhost:5001');
@@ -16,6 +17,12 @@ const App = () => (
       <Redirect noThrow from='/app' to='/app/dashboard' exact />
       <PrivateRoute path='/app/dashboard' component={Dashboard} />
       <PrivateRoute path='/app/builder/:id' component={Builder} />
+      <PrivateRoute
+        path='/app/recommendation'
+        component={RecommendationScreen}
+      />
+      {/* <Dashboard path='/app/dashboard' />
+      <Builder path='/app/builder/:id' /> */}
       <NotFound default />
     </Router>
   </Wrapper>

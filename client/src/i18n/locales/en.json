@@ -89,7 +89,8 @@
       "fonts": "Fonts",
       "actions": "Actions",
       "settings": "Settings",
-      "about": "About"
+      "about": "About",
+      "recommendation": "Recommendation"
     },
     "profile": {
       "photograph": "Photograph",
@@ -177,6 +178,9 @@
         "text": "If you would like to delete your account and erase all your resumes, it’s just one button away. Please be wary as this is an irreversible process.",
         "button": "Delete Account"
       }
+    },
+    "recommendation": {
+      "goToRecommendation": "Go to Recommendation"
     },
     "about": {
       "donate": {

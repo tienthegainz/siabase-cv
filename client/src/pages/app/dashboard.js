@@ -10,7 +10,6 @@ import LoadingScreen from '../../components/router/LoadingScreen';
 
 const Dashboard = ({ user }) => {
   const { t } = useTranslation();
-
   const [resumes, setResumes] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,6 +41,7 @@ const Dashboard = ({ user }) => {
           Object.keys(data).forEach(key => resumesArr.push(data[key]));
           setResumes(resumesArr);
         }
+        console.log(user, snapshot, snapshot.val())
       });
 
     firebase
@@ -68,9 +68,8 @@ const Dashboard = ({ user }) => {
   if (loading) {
     return <LoadingScreen />;
   }
-
   return (
-    <div>
+    <div style={{ padding: '10px 30px' }}>
       <Helmet>
         <title>
           {t('dashboard.title')} | {t('shared.appName')}

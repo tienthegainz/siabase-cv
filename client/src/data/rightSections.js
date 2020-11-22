@@ -4,7 +4,8 @@ import {
   MdFontDownload,
   // MdImportExport,
   MdSettings,
-  MdStyle
+  MdStyle,
+  MdBusiness
 } from 'react-icons/md';
 
 export default [
@@ -31,5 +32,9 @@ export default [
   {
     id: 'settings',
     icon: MdSettings
+  },
+  {
+    id: 'recommendation',
+    icon: MdBusiness
   }
 ];

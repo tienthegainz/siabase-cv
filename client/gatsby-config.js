@@ -29,7 +29,7 @@ module.exports = {
         start_url: '/',
         background_color: '#212121',
         icon: 'static/images/logo.svg',
-        orientation: 'landscape',
+        // orientation: 'landscape',
         theme_color: '#212121',
         display: 'standalone'
       }
