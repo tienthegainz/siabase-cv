@@ -12,17 +12,44 @@ const TopNavbar = () => {
   return (
     <div className={styles.navbar}>
       <div className='container'>
-        <Link to='/'>
-          <img
-            src={theme === 'Light' ? FullLogoLight : FullLogoDark}
-            alt='EzCV'
-            width='35%'
-          />
-        </Link>
-
+        <div
+          className='top-left'
+          style={{
+            display: 'flex',
+            alignItems: 'center'
+          }}
+        >
+          <Link to='/'>
+            <img
+              src={theme === 'Light' ? FullLogoLight : FullLogoDark}
+              alt='EzCV'
+              width='35%'
+            />
+          </Link>
+          <Link
+            to='/app/dashboard/'
+            style={{
+              fontSize: 30,
+              marginRight: 20,
+              textDecoration: 'inherit'
+            }}
+          >
+            Dashboard
+          </Link>
+          <Link
+            to='/app/companies/'
+            style={{
+              fontSize: 30,
+              marginRight: 20,
+              textDecoration: 'inherit'
+            }}
+          >
+            Companies
+          </Link>
+        </div>
         <Avatar className='ml-8' />
       </div>
-    </div>
+    </div >
   );
 };
 
