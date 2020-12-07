@@ -13,7 +13,8 @@
     "start": "yarn run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -42,6 +43,7 @@
     "gatsby-source-gravatar": "^1.0.0",
     "gatsby-transformer-remark": "^2.8.27",
     "gatsby-transformer-sharp": "^2.5.12",
+    "google-fonts-plugin": "2.0.2",
     "i18next": "^19.6.3",
     "lodash": "^4.17.19",
     "nanoevents": "^5.1.8",

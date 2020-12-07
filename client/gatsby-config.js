@@ -35,45 +35,45 @@ module.exports = {
       }
     },
     'gatsby-plugin-remove-serviceworker',
-    {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
-      options: {
-        fonts: [
-          {
-            family: 'Lato',
-            variants: ['400', '700']
-          },
-          {
-            family: 'Montserrat',
-            variants: ['400', '500', '600', '700']
-          },
-          {
-            family: 'Nunito',
-            variants: ['400', '600', '700']
-          },
-          {
-            family: 'Open Sans',
-            variants: ['400', '600', '700']
-          },
-          {
-            family: 'Raleway',
-            variants: ['400', '500', '700']
-          },
-          {
-            family: 'Rubik',
-            variants: ['400', '500', '700']
-          },
-          {
-            family: 'Source Sans Pro',
-            variants: ['400', '600', '700']
-          },
-          {
-            family: 'Titillium Web',
-            variants: ['400', '600', '700']
-          }
-        ]
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-prefetch-google-fonts',
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: 'Lato',
+    //         variants: ['400', '700']
+    //       },
+    //       {
+    //         family: 'Montserrat',
+    //         variants: ['400', '500', '600', '700']
+    //       },
+    //       {
+    //         family: 'Nunito',
+    //         variants: ['400', '600', '700']
+    //       },
+    //       {
+    //         family: 'Open Sans',
+    //         variants: ['400', '600', '700']
+    //       },
+    //       {
+    //         family: 'Raleway',
+    //         variants: ['400', '500', '700']
+    //       },
+    //       {
+    //         family: 'Rubik',
+    //         variants: ['400', '500', '700']
+    //       },
+    //       {
+    //         family: 'Source Sans Pro',
+    //         variants: ['400', '600', '700']
+    //       },
+    //       {
+    //         family: 'Titillium Web',
+    //         variants: ['400', '600', '700']
+    //       }
+    //     ]
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-create-client-paths',
       options: { prefixes: ['/app/*'] }

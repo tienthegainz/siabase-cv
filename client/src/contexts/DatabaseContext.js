@@ -29,7 +29,7 @@ const DatabaseProvider = ({ children }) => {
   const uuid = new ShortUniqueId({ dictionary });
 
   const [isUpdating, setUpdating] = useState(false);
-  // const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const getResume = async id => {
     try {
@@ -67,23 +67,23 @@ const DatabaseProvider = ({ children }) => {
 
     const createdAt = firebase.database.ServerValue.TIMESTAMP;
 
-    // let firstName;
-    // let lastName;
+    let firstName;
+    let lastName;
 
-    // if (!user.isAnonymous) {
-    //   [firstName, lastName] = user.displayName.split(' ');
-    // }
+    if (!user.isAnonymous) {
+      [firstName, lastName] = user.displayName.split(' ');
+    }
 
     const resume = {
       ...initialState,
       id,
       name,
-      // user: user.uid,
+      user: user.uid,
       preview,
       profile: {
         ...initialState.profile,
-        // firstName: firstName || '',
-        // lastName: lastName || ''
+        firstName: firstName || '',
+        lastName: lastName || ''
       },
       createdAt,
       updatedAt: createdAt

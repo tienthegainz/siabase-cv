@@ -32,9 +32,5 @@ export default [
   {
     id: 'settings',
     icon: MdSettings
-  },
-  {
-    id: 'recommendation',
-    icon: MdBusiness
   }
 ];

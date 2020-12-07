@@ -20,7 +20,7 @@ const TopNavbar = () => {
           />
         </Link>
 
-        {/* <Avatar className='ml-8' /> */}
+        <Avatar className='ml-8' />
       </div>
     </div>
   );

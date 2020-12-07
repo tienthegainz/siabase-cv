@@ -1,14 +1,18 @@
 {
   "hosting": {
     "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "headers": [
       {
         "source": "**/*",
         "headers": [
           {
             "key": "cache-control",
-            "value": "cache-control: public, max-age=0, must-revalidate"
+            "value": "public, max-age=0, must-revalidate"
           }
         ]
       },
@@ -35,7 +39,7 @@
         "headers": [
           {
             "key": "cache-control",
-            "value": "cache-control: public, max-age=0, must-revalidate"
+            "value": "public, max-age=0, must-revalidate"
           }
         ]
       },
@@ -44,7 +48,7 @@
         "headers": [
           {
             "key": "cache-control",
-            "value": "cache-control: public, max-age=0, must-revalidate"
+            "value": "public, max-age=0, must-revalidate"
           }
         ]
       }

@@ -48,7 +48,7 @@ const Avatar = ({ className }) => {
         open={Boolean(anchorEl)}
       >
         <MenuItem onClick={handleClose}>
-          {/* {user.displayName || 'Anonymous User'} */}
+          {user.displayName || 'Anonymous User'}
         </MenuItem>
         <MenuItem onClick={handleLogout}>{t('shared.buttons.logout')}</MenuItem>
       </Menu>

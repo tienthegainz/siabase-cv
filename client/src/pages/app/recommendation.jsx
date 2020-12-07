@@ -6,6 +6,8 @@ import DatabaseContext from '../../contexts/DatabaseContext';
 import { useState } from 'react';
 import { languages } from '../../i18n';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
+import TopNavbar from '../../components/dashboard/TopNavbar';
 
 const dataColor = [
   '#5875DB',
@@ -165,44 +167,55 @@ const RecommendationScreen = ({ id }) => {
   }, []);
 
   return (
-    <Wrapper>
-      <TitleWrapper>
-        <Title>{t('recommendation.title')}</Title>
-      </TitleWrapper>
-      {recommendation.map((val, idx) => (
-        <RecommendationWrapper
-          key={idx}
-          onClick={() => {
-            window.open(val.url, '_blank');
-          }}
-        >
-          <AvatarWrapper>
-            <Avatar alt={idx} src={val.avatar} />
-          </AvatarWrapper>
-          <Right>
-            <Name>{val.name}</Name>
-            <Description>{val.description}</Description>
-            <ListProgramLanguage>
-              {val.requirements.map((item, key) => {
-                return (
-                  <ProgramLanguageWrapper color={dataColor[key]}>
-                    <ProgramLanguage>{item.language}</ProgramLanguage>
-                  </ProgramLanguageWrapper>
-                );
-              })}
-            </ListProgramLanguage>
-            <VacanciesWrapper>
-              <VacanciesTitle>{t('recommendation.vacancies')} |</VacanciesTitle>
-              <Vacancies>
-                {val.requirements.map(item => {
-                  return item.language + ' ' + item.level + ', ';
+    <div style={{ padding: '10px 30px' }}>
+      <Helmet>
+        <title>
+          {t('dashboard.title')} | {t('shared.appName')}
+        </title>
+        <link rel='canonical' href='https://siabase-cv.web.app/app/dashboard' />
+      </Helmet>
+
+      <TopNavbar />
+
+      <Wrapper>
+        <TitleWrapper>
+          <Title>{t('recommendation.title')}</Title>
+        </TitleWrapper>
+        {recommendation.map((val, idx) => (
+          <RecommendationWrapper
+            key={idx}
+            onClick={() => {
+              window.open(val.url, '_blank');
+            }}
+          >
+            <AvatarWrapper>
+              <Avatar alt={idx} src={val.avatar} />
+            </AvatarWrapper>
+            <Right>
+              <Name>{val.name}</Name>
+              <Description>{val.description}</Description>
+              <ListProgramLanguage>
+                {val.requirements.map((item, key) => {
+                  return (
+                    <ProgramLanguageWrapper color={dataColor[key]}>
+                      <ProgramLanguage>{item.language}</ProgramLanguage>
+                    </ProgramLanguageWrapper>
+                  );
                 })}
-              </Vacancies>
-            </VacanciesWrapper>
-          </Right>
-        </RecommendationWrapper>
-      ))}
-    </Wrapper>
+              </ListProgramLanguage>
+              <VacanciesWrapper>
+                <VacanciesTitle>{t('recommendation.vacancies')} |</VacanciesTitle>
+                <Vacancies>
+                  {val.requirements.map(item => {
+                    return item.language + ' ' + item.level + ', ';
+                  })}
+                </Vacancies>
+              </VacanciesWrapper>
+            </Right>
+          </RecommendationWrapper>
+        ))}
+      </Wrapper>
+    </div>
   );
 };
 
