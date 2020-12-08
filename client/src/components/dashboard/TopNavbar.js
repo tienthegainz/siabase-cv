@@ -12,13 +12,7 @@ const TopNavbar = () => {
   return (
     <div className={styles.navbar}>
       <div className='container'>
-        <div
-          className='top-left'
-          style={{
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
+        <div className={styles.topleft}>
           <Link to='/'>
             <img
               src={theme === 'Light' ? FullLogoLight : FullLogoDark}
@@ -26,24 +20,10 @@ const TopNavbar = () => {
               width='35%'
             />
           </Link>
-          <Link
-            to='/app/dashboard/'
-            style={{
-              fontSize: 30,
-              marginRight: 20,
-              textDecoration: 'inherit'
-            }}
-          >
+          <Link to='/app/dashboard/' className={styles.navigation}>
             Dashboard
           </Link>
-          <Link
-            to='/app/companies/'
-            style={{
-              fontSize: 30,
-              marginRight: 20,
-              textDecoration: 'inherit'
-            }}
-          >
+          <Link to='/app/companies/' className={styles.navigation}>
             Companies
           </Link>
         </div>
