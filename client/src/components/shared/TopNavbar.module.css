@@ -1,0 +1,25 @@
+.navbar {
+  height: 65px;
+  box-shadow: var(--bottom-shadow);
+  @apply w-full;
+}
+
+.navbar > div {
+  @apply h-full flex items-center justify-between;
+}
+
+.navigation {
+  font-size: 30px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.navigation:hover {
+  color: cornflowerblue;
+  text-decoration: none;
+}
+
+.topleft {
+  display: flex;
+  align-items: center;
+}

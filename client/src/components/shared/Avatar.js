@@ -21,10 +21,11 @@ const Avatar = ({ className }) => {
     handleClose();
   };
 
-  const photoURL = useMemo(
-    () => user.photoURL || toUrl(user.uid, 'size=128&d=retro'),
-    [user.photoURL]
-  );
+  const photoURL = useMemo(() => {
+    if (user != null) {
+      return user.photoURL || toUrl(user.uid, 'size=128&d=retro');
+    }
+  }, [user]);
 
   return (
     <div>
@@ -37,7 +38,7 @@ const Avatar = ({ className }) => {
       >
         <img
           src={photoURL}
-          alt={user.displayName || 'Anonymous User'}
+          alt={user != null ? user.displayName || 'Anonymous User' : ''}
           className={cx(styles.container, className)}
         />
       </div>
@@ -48,7 +49,7 @@ const Avatar = ({ className }) => {
         open={Boolean(anchorEl)}
       >
         <MenuItem onClick={handleClose}>
-          {user.displayName || 'Anonymous User'}
+          {user != null ? user.displayName || 'Anonymous User' : ''}
         </MenuItem>
         <MenuItem onClick={handleLogout}>{t('shared.buttons.logout')}</MenuItem>
       </Menu>

@@ -73,7 +73,7 @@ const Dashboard = ({ user }) => {
         <title>
           {t('dashboard.title')} | {t('shared.appName')}
         </title>
-        <link rel='canonical' href='https://siabase-cv.web.app/app/dashboard' />
+        <link rel='canonical' href='https://ezcv-787f8.web.app/' />
       </Helmet>
 
       <TopNavbar />

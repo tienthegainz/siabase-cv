@@ -1,13 +1,10 @@
 /* eslint-disable guard-for-in */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+// import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { useContext } from 'react';
-import DatabaseContext from '../../contexts/DatabaseContext';
-import { useState } from 'react';
-import { languages } from '../../i18n';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet';
-import TopNavbar from '../../components/dashboard/TopNavbar';
+import DatabaseContext from '../../contexts/DatabaseContext';
+import TopNavbar from '../../components/recommendation/TopNavbar';
 
 const dataColor = [
   '#5875DB',
@@ -50,14 +47,14 @@ const RecommendationWrapper = styled.div`
   }
 `;
 
-const AvatarWrapper = styled.div`
+const CompanyAvatarWrapper = styled.div`
   width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const Avatar = styled.img`
+const CompanyAvatar = styled.img`
   height: 140px;
   width: 140px;
 `;
@@ -168,12 +165,6 @@ const RecommendationScreen = ({ id }) => {
 
   return (
     <div style={{ padding: '10px 30px' }}>
-      <Helmet>
-        <title>
-          {t('dashboard.title')} | {t('shared.appName')}
-        </title>
-        <link rel='canonical' href='https://siabase-cv.web.app/app/dashboard' />
-      </Helmet>
 
       <TopNavbar />
 
@@ -188,9 +179,9 @@ const RecommendationScreen = ({ id }) => {
               window.open(val.url, '_blank');
             }}
           >
-            <AvatarWrapper>
-              <Avatar alt={idx} src={val.avatar} />
-            </AvatarWrapper>
+            <CompanyAvatarWrapper>
+              <CompanyAvatar alt={idx} src={val.avatar} />
+            </CompanyAvatarWrapper>
             <Right>
               <Name>{val.name}</Name>
               <Description>{val.description}</Description>
@@ -204,7 +195,9 @@ const RecommendationScreen = ({ id }) => {
                 })}
               </ListProgramLanguage>
               <VacanciesWrapper>
-                <VacanciesTitle>{t('recommendation.vacancies')} |</VacanciesTitle>
+                <VacanciesTitle>
+                  {t('recommendation.vacancies')} |
+                </VacanciesTitle>
                 <Vacancies>
                   {val.requirements.map(item => {
                     return item.language + ' ' + item.level + ', ';

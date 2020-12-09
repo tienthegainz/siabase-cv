@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react';
 import { Link } from 'gatsby';
-import Avatar from '../shared/Avatar';
+import Avatar from './Avatar';
 import SettingsContext from '../../contexts/SettingsContext';
 import FullLogoLight from '../../../static/images/full-logo-light.svg';
 import FullLogoDark from '../../../static/images/full-logo-dark.svg';
