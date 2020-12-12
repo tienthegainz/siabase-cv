@@ -46,9 +46,8 @@ const SearchInput = ({ onChangePageSize }) => {
     <Wrapper>
       <Input placeholder='Nhập tên công ty' />
       <Dropdown onChange={e => onChangePageSize(e.target.value)}>
-        <option value={2}>5</option>
-        <option value={3}>10</option>
-        <option value={4}>15</option>
+        <option value={3}>3</option>
+        <option value={5}>5</option>
       </Dropdown>
     </Wrapper>
   );
