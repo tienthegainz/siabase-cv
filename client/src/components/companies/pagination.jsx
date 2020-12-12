@@ -1,5 +1,5 @@
-import { chunk, map, size } from 'lodash';
-import React, { useState } from 'react';
+import { map } from 'lodash';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -19,29 +19,25 @@ const ItemWrapper = styled.div`
   background-color: ${props => props.active && '#ff9500'};
   margin-left: 10px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #ff9500;
+  }
 `;
 
-const Pagination = ({ companies, sizePage = 3 }) => {
-  const totalElements = size(companies);
-  const totalPages = Math.ceil(totalElements / sizePage);
-  const newData = chunk(companies, sizePage);
-  const [current, setCurrent] = useState(0);
-  const onNext = () => {
-    if (current + 1 < totalPages) {
-      setCurrent(current + 1);
-    }
-  };
-  const onBack = () => {
-    if (current - 1 >= 0) {
-      setCurrent(current - 1);
-    }
-  };
+const Pagination = ({ totalPages, current, onNext, onBack, onSelect }) => {
   return (
     <Wrapper>
       <ItemWrapper onClick={onBack}>{'<'}</ItemWrapper>
-      {map(newData, (item, index) => {
+      {map([...Array(totalPages)], (item, index) => {
         return (
-          <ItemWrapper active={index === current}>{index + 1}</ItemWrapper>
+          <ItemWrapper
+            active={index === current}
+            key={index}
+            onClick={() => onSelect(index)}
+          >
+            {index + 1}
+          </ItemWrapper>
         );
       })}
       <ItemWrapper onClick={onNext}>{'>'}</ItemWrapper>

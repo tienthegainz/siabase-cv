@@ -1,41 +1,38 @@
-import { values } from 'lodash';
+import { values, size, map, first } from 'lodash';
 import React, { useContext, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import ListCompanies from '../../components/companies/list';
-import Pagination from '../../components/companies/pagination';
-import SearchInput from '../../components/companies/search';
 import DatabaseContext from '../../contexts/DatabaseContext';
-
-const Container = styled.div`
-  margin: 50px 20vw;
-`;
-
-const Title = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-`;
+import CompaniesScreen from '../../components/companies';
 
 const Companies = () => {
   const { getCompanies } = useContext(DatabaseContext);
-  const [companies, setCompanies] = useState([]);
+  const [firstKey, setFirstKey] = useState('');
+  const [allKeys, setAllKeys] = useState([]);
+  const [pageSize, setPageSize] = useState(2);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     getCompanies().then(res => {
-      setCompanies(values(res));
+      const allCompany = values(res);
+      const allKeyCompany = map(res, (value, key) => key);
+      setAllKeys(allKeyCompany);
+      setFirstKey(first(allKeyCompany));
+      setTotalPages(Math.ceil(size(allCompany) / pageSize));
     });
-  }, []);
+  }, [pageSize]);
+
+  const onChangePageSize = value => {
+    // eslint-disable-next-line radix
+    setPageSize(parseInt(value));
+  };
 
   return (
-    <Container>
-      <Title>
-        <div className='text-primary-900'>List Companies</div>
-      </Title>
-      <SearchInput />
-      <ListCompanies companies={companies} />
-      <Pagination companies={companies} />
-    </Container>
+    <CompaniesScreen
+      totalPages={totalPages}
+      allKeys={allKeys}
+      firstKey={firstKey}
+      pageSize={pageSize}
+      onChangePageSize={onChangePageSize}
+    />
   );
 };
 

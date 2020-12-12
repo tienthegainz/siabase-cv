@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 200px;
   margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Input = styled.input`
+  width: 200px !important;
   font-family: Arial !important;
   font-size: 14px !important;
   font-weight: normal;
@@ -23,10 +25,31 @@ const Input = styled.input`
   }
 `;
 
-const SearchInput = () => {
+const Dropdown = styled.select`
+  width: 50px !important;
+  font-family: Arial !important;
+  font-size: 14px !important;
+  font-weight: normal;
+  color: #575757;
+  margin-top: 5px !important;
+  height: 30px;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid #ff9500;
+  &:focus {
+    outline: none !important;
+  }
+`;
+
+const SearchInput = ({ onChangePageSize }) => {
   return (
     <Wrapper>
       <Input placeholder='Nhập tên công ty' />
+      <Dropdown onChange={e => onChangePageSize(e.target.value)}>
+        <option value={2}>5</option>
+        <option value={3}>10</option>
+        <option value={4}>15</option>
+      </Dropdown>
     </Wrapper>
   );
 };

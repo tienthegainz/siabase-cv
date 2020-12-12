@@ -7,7 +7,7 @@ import NotFound from './404';
 import Builder from './app/builder';
 import Dashboard from './app/dashboard';
 import RecommendationScreen from './app/recommendation';
-import Companies from './app/companies'
+import Companies from './app/companies';
 
 // if (window.location.hostname === 'localhost')
 //   firebase.functions().useFunctionsEmulator('http://localhost:5001');

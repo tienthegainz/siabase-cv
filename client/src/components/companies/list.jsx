@@ -117,7 +117,7 @@ const ListCompanies = ({ companies }) => {
           <ListProgramLanguage>
             {data.map((item, key) => {
               return (
-                <ProgramLanguageWrapper color={dataColor[key]}>
+                <ProgramLanguageWrapper color={dataColor[key]} key={key}>
                   <ProgramLanguage>{item.language}</ProgramLanguage>
                 </ProgramLanguageWrapper>
               );
