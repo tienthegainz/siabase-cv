@@ -15,7 +15,7 @@ const dataColor = [
 ];
 
 const RecommendationWrapper = styled.div`
-  border: 1px solid #ffbc42;
+  border: 1px solid #2bc2d9;
   border-radius: 40px;
   width: 100%;
   margin: 20px;
