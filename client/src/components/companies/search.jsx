@@ -18,7 +18,7 @@ const Input = styled.input`
   border-radius: 10px;
   width: 100%;
   padding-left: 20px;
-  border: 1px solid #ff9500;
+  border: 1px solid #2bc2d9;
 
   &:focus {
     outline: none !important;
@@ -35,16 +35,19 @@ const Dropdown = styled.select`
   height: 30px;
   border-radius: 10px;
   width: 100%;
-  border: 1px solid #ff9500;
+  border: 1px solid #2bc2d9;
   &:focus {
     outline: none !important;
   }
 `;
 
-const SearchInput = ({ onChangePageSize }) => {
+const SearchInput = ({ onChangePageSize, onSearch }) => {
   return (
     <Wrapper>
-      <Input placeholder='Nhập tên công ty' />
+      <Input
+        placeholder='Nhập tên công ty'
+        onChange={e => onSearch(e.target.value)}
+      />
       <Dropdown onChange={e => onChangePageSize(e.target.value)}>
         <option value={3}>3</option>
         <option value={5}>5</option>

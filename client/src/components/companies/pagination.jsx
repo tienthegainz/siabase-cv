@@ -12,16 +12,16 @@ const ItemWrapper = styled.div`
   height: 30px;
   width: 30px;
   border-radius: 15px;
-  border: 1px solid #ff9500;
+  border: 1px solid #2bc2d9;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.active && '#ff9500'};
+  background-color: ${props => props.active && '#2bc2d9'};
   margin-left: 10px;
   cursor: pointer;
 
   &:hover {
-    background-color: #ff9500;
+    background-color: #2bc2d9;
   }
 `;
 
