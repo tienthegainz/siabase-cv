@@ -36,7 +36,7 @@ const Title = styled.div`
 `;
 
 const RecommendationWrapper = styled.div`
-  border: 1px solid #ffbc42;
+  border: 1px solid #2bc2d9;
   border-radius: 40px;
   width: 100%;
   margin: 20px;
@@ -144,6 +144,7 @@ const RecommendationScreen = ({ id }) => {
         const r = val.requirements;
         let ok = false;
 
+        // eslint-disable-next-line array-callback-return
         r.some(element => {
           skills.some(skill => {
             if (
@@ -165,9 +166,7 @@ const RecommendationScreen = ({ id }) => {
 
   return (
     <div style={{ padding: '10px 30px' }}>
-
       <TopNavbar />
-
       <Wrapper>
         <TitleWrapper>
           <Title>{t('recommendation.title')}</Title>
@@ -200,7 +199,7 @@ const RecommendationScreen = ({ id }) => {
                 </VacanciesTitle>
                 <Vacancies>
                   {val.requirements.map(item => {
-                    return item.language + ' ' + item.level + ', ';
+                    return `${item.language} ${item.level}, `;
                   })}
                 </Vacancies>
               </VacanciesWrapper>

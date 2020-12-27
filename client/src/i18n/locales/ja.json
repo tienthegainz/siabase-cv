@@ -214,6 +214,10 @@
     "title": "会社のお勧め",
     "vacancies": "欠員"
   },
+  "companies": {
+    "title": "会社一覧",
+    "placeholder": "会社の名前を入力して"
+  },
   "modals": {
     "auth": {
       "whoAreYou": "どなたですか？",

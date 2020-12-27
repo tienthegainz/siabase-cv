@@ -215,6 +215,10 @@
     "title": "Company recommendation",
     "vacancies": "Vacancies"
   },
+  "companies": {
+    "title": "Companies List",
+    "placeholder": "Insert company name"
+  },
   "modals": {
     "auth": {
       "whoAreYou": "Tell us who you are",

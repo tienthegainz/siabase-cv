@@ -1,5 +1,10 @@
-import React from 'react';
+import { map } from 'lodash';
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { useDispatch } from '../../contexts/ResumeContext';
+import SettingsContext from '../../contexts/SettingsContext';
+import { languages } from '../../i18n';
 
 const Wrapper = styled.div`
   margin-left: 20px;
@@ -26,7 +31,7 @@ const Input = styled.input`
 `;
 
 const Dropdown = styled.select`
-  width: 50px !important;
+  width: ${props => `${props.width}px`} !important;
   font-family: Arial !important;
   font-size: 14px !important;
   font-weight: normal;
@@ -42,15 +47,33 @@ const Dropdown = styled.select`
 `;
 
 const SearchInput = ({ onChangePageSize, onSearch }) => {
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { language, setLanguage } = useContext(SettingsContext);
+  const handleChangeLanguage = e => {
+    const lang = e.target.value;
+    setLanguage(lang);
+    dispatch({ type: 'change_language', payload: lang });
+    // dispatch({ type: 'update_skynet_synced_status' });
+  };
   return (
     <Wrapper>
       <Input
-        placeholder='Nhập tên công ty'
+        placeholder={t('companies.placeholder')}
         onChange={e => onSearch(e.target.value)}
       />
-      <Dropdown onChange={e => onChangePageSize(e.target.value)}>
+      <Dropdown onChange={e => onChangePageSize(e.target.value)} width={50}>
         <option value={3}>3</option>
         <option value={5}>5</option>
+      </Dropdown>
+      <Dropdown
+        width={200}
+        onChange={handleChangeLanguage}
+        defaultValue={language}
+      >
+        {map(languages, item => {
+          return <option value={item.code}>{item.name}</option>;
+        })}
       </Dropdown>
     </Wrapper>
   );
