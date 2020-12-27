@@ -6,6 +6,7 @@ import TopNavbar from '../../components/dashboard/TopNavbar';
 import ListCompanies from '../../components/companies/list';
 import Pagination from '../../components/companies/pagination';
 import SearchInput from '../../components/companies/search';
+import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
   margin: 50px 20vw;
@@ -20,6 +21,7 @@ const Title = styled.div`
 
 const Companies = () => {
   const { getCompanies } = useContext(DatabaseContext);
+  const { t } = useTranslation();
   const [pageSize, setPageSize] = useState(3);
   const [totalPages, setTotalPages] = useState(0);
   const [companies, setCompanies] = useState([]);
@@ -83,7 +85,7 @@ const Companies = () => {
       <TopNavbar />
       <Container>
         <Title>
-          <div className='text-primary-900'>List Companies</div>
+          <div className='text-primary-900'>{t('companies.title')}</div>
         </Title>
         <SearchInput onChangePageSize={onChangePageSize} onSearch={onSearch} />
         <ListCompanies companies={currentCompanies} />
